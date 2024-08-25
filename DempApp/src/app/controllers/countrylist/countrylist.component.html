@@ -1,0 +1,15 @@
+<div>
+
+
+<!-- <ul *ngFor="let Item of countryList">
+    <li>{{Item.name}} ||{{Item.code}} || {{Item.flag}} ||{{Item.dial_code}} </li>
+</ul> -->
+<select formControlName="CountryList" class="form-control" (change)="changeCountryList($event)">
+    <option disabled>Select Your Location</option>
+    <option>Choose Country</option>
+    <option *ngFor="let cl of countryList">{{cl.name}}</option>
+</select>
+
+
+
+</div>

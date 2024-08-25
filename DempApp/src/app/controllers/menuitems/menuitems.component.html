@@ -1,0 +1,12 @@
+<div class="nav" role="banner">  
+      <!-- <div class="nav-item" *ngFor="let mt of menuItems">        
+        <a class="nav-link" [routerLink]="mt.MENU_NAME">{{mt.MENU_NAME}} </a>        
+      </div> -->
+     <ul class="nav">
+        <li class="nav-item" *ngFor="let mt of menuItems">
+          <a class="nav-link text-light" [routerLink]="mt.MENU_NAME">{{mt.MENU_NAME}} </a>      
+        </li>
+        
+     </ul>
+  </div>
+  
