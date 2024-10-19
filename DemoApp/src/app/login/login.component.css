@@ -5,3 +5,7 @@
 .card{
     border-color: #007bff !important ;
 }
+input.ng-invalid.ng-touched{
+    border: red 1px solid;
+}
+.error{color: red;}

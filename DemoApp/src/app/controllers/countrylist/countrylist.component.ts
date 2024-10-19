@@ -17,8 +17,8 @@ export class CountrylistComponent implements OnInit {
     });
   ngOnInit() {
     this.countryList=countries;
-    console.log("Country List Json >>" + JSON.stringify(countries));
-    console.log("Country List >>" +this.countryList);
+    // console.log("Country List Json >>" + JSON.stringify(countries));
+    // console.log("Country List >>" +this.countryList);
     
   }
   changeCountryList(e) {
