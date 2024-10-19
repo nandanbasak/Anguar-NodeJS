@@ -9,7 +9,7 @@ import { CanDeactivateGuard } from './Guard/can-deactivate.guard';
 
 
 const routes: Routes = [
-  {path:'/', component:HomeComponent},
+  {path:'', component:HomeComponent},
   {path:'home', component:HomeComponent, canActivate:[AuthGuard]},
   {path:'login', component:LoginComponent},
   {path:'contact', component:ContactComponent, canDeactivate:[CanDeactivateGuard]},
