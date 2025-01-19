@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDeactivateComponent } from 'src/app/Guard/can-deactivate.guard';
 import { CommonService } from 'src/app/services/common.service';
 import { map } from 'rxjs/operators';
-import { Contacts } from 'src/app/Models/contacts';
+import { Contacts } from 'src/app/modules/contacts';
 
 @Component({
   selector: 'app-contact',
@@ -32,12 +32,12 @@ export class ContactComponent implements OnInit, IDeactivateComponent {
   onSubmit(contact:{firstname:string,firstName: string,lastName: string,email: string,phoneno: number,message: string;}) {
     console.log(contact);
     this.Allcontacts=Object.assign(contact);
-    console.log("1 >> " + this.Allcontacts);
+    console.log("1 >> " + JSON.stringify(this.Allcontacts));
     this.postRequest(contact);
   }
 postRequest(contact:any){  
   this.commonService.postRequest( contact).subscribe((result)=>{
-    console.log(`postRequest() ${JSON.parse(result)}`);
+    console.log(`postRequest() ${JSON.stringify(result)}`);
   });
 }
 getRequest(){
@@ -52,7 +52,7 @@ getRequest(){
     return contacts;
   }))
   .subscribe((contacts)=>{   
-    console.log(`getRequest() ${contacts}`);
+    console.log(`getRequest() ${JSON.stringify(contacts)}`);
     this.Allcontacts=contacts;
   });
 }

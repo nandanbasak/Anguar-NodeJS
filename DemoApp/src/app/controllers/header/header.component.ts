@@ -1,5 +1,6 @@
-import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -7,28 +8,26 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnChanges {
-  isLoginUser: boolean=false;
-  @Input() UserLiggedIn=this.isLoginUser;
+export class HeaderComponent implements OnInit {
+  UserLiggedIn: boolean=false;
+  userDtls:any;
   constructor(private loginservice: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    this.loginservice.isUserLoggedinSubBe$.subscribe(isUserLogin=>{
+        this.UserLiggedIn=isUserLogin;
+      }
+    );
+    this.loginservice.dtlsUserLoginSubBe$.subscribe(user=>{
+      this.userDtls=user;
+    }
+  );
+  }
 
-  }
-  ngOnChanges() {
-    console.log('ngOnChanges called ' + this.isLoginUser);
-    this.login();
-    this.UserLiggedIn=this.isLoginUser;
-  }
-  login() {
-    this.loginservice.isUserLoggedinSub.subscribe(isLogin => {
-      this.isLoginUser = isLogin;
-      console.log('Header Component Login() ' + this.isLoginUser);
-    });
-  }
-  logout() {
-    this.isLoginUser = false;
-    this.loginservice.isUserLoggedin(this.isLoginUser);
+  logout(){
+    this.UserLiggedIn=false;
+    this.loginservice.setLoginUserDetails(null);
+    this.loginservice.setUserLoggedin(this.UserLiggedIn);
     this.router.navigate(['login']);
   }
 }

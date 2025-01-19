@@ -1,15 +1,52 @@
-import { Injectable ,EventEmitter} from '@angular/core';
-import { observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, EventEmitter } from '@angular/core';
+import { BehaviorSubject, Observable, observable, pipe, Subject } from 'rxjs';
+import { CommonService } from './common.service';
+import { Key } from 'protractor';
+import { Users } from '../modules/users';
+import { map } from 'rxjs/operators';
+import { ReturnStatement } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-isUserLoggedinSub =new Subject<boolean>();
-// dataEmitor = new EventEmitter<string>();
-  constructor() { }
+  private AllUsers: Users[] = [];
+  userList: Users[] = [];
+  isLoggedIn: boolean = false;
+  dtlsUserLoginSubBe = new BehaviorSubject<any>(null);
+  dtlsUserLoginSubBe$ = this.dtlsUserLoginSubBe.asObservable();
+  isUserLoggedinSubBe = new BehaviorSubject<boolean>(false);
+  isUserLoggedinSubBe$ = this.isUserLoggedinSubBe.asObservable();
+  // dataEmitor = new EventEmitter<string>();
+  constructor(private http: HttpClient, private common: CommonService) { }
 
- isUserLoggedin(data:boolean ){
-    this.isUserLoggedinSub.next(data);
+  getAllUsers(): Observable<Users[]> {
+    return this.http.get<{ [key: string]: Users }>('./assets/users.json')
+      .pipe(map((res) => {
+        const users: Users[] = [];
+        for (const key in res) {
+          if (res.hasOwnProperty(key)) {
+            users.push({ ...res[key], user_id: key })
+          }
+        }
+        console.log(`user list >> ${JSON.stringify(users)}`);
+        return users;
+      }))
+
+  }
+  allusers() {
+    return this.common.getRequest("../assets/users.json");
+
+  }
+  setUserLoggedin(data: boolean) {
+    //console.log(`setUserLoggedin status >> ${data}`);
+    this.isUserLoggedinSubBe.next(data);
+  }
+  isAuthenticate() {
+    return this.isLoggedIn;
+  }
+  setLoginUserDetails(data: any) {
+    this.dtlsUserLoginSubBe.next(data);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { Users } from '../modules/users';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  userid: string; password: string; userList: Users[] = [];
   visible: boolean = false;
   changetype: boolean = true;
   resData: any;
   loginForm: FormGroup;
   isUserLoggedIn: boolean = false;
   constructor(private loginservice: LoginService, private router: Router) { }
-
   ProccedLogin() {
+debugger;
     if (this.loginForm.valid) {
-      this.isUserLoggedIn = true;
-      this.loginservice.isUserLoggedin(this.isUserLoggedIn);
-      this.router.navigate(['home']);
-    } else {
-      this.router.navigate(['login']);
-      console.log(`Not a valid user '${this.loginForm.controls['email'].value}'`)
+      this.userid = this.loginForm.controls['email'].value;
+      this.password = this.loginForm.controls['password'].value;
+
+      this.loginservice.allusers().subscribe((users) => {
+        this.userList = users;
+        console.log(`Component user list >> ${JSON.stringify(this.userList)}`);
+        this.userList = this.userList.filter(u => 
+          u.email === this.userid && u.password === this.password 
+        );
+        console.log(`Component user list filtered >> ${JSON.stringify(this.userList)}`);
+
+        if (this.userList.length > 0) {
+          this.isUserLoggedIn = true;
+          this.loginservice.setUserLoggedin(this.isUserLoggedIn);
+          this.loginservice.setLoginUserDetails(this.userList);
+          this.router.navigate(['home']);
+          console.log(`User Login Success!`);
+        } else {
+          this.isUserLoggedIn = false;
+          this.router.navigate(['login']);
+          console.log(`Not a valid user '${this.loginForm.controls['email'].value}'`)
+        }
+      });
+
     }
     console.log(this.loginForm);
     // this.loginservice.isUserLoggedinSub.subscribe((data)=>{
@@ -34,6 +54,10 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit() {
     this.CreateForm();
+    // this.loginservice.getUser().subscribe(data => {
+    //   //console.log(`Component user list >> ${JSON.stringify(data)}`);
+    // }
+    // );
     console.log(this.loginForm);
   }
   CreateForm() {
@@ -47,4 +71,5 @@ export class LoginComponent implements OnInit {
     this.visible = !this.visible;
     this.changetype = !this.changetype;
   }
+
 }

@@ -13,30 +13,30 @@
                             <div class="col">
                                 <label>First Name</label>
                                 <input type="text" required maxlength="50" class="form-control" id="first_name"
-                                    name="firstname" ngModel>
+                                    name="firstname" [(ngModel)]="firstname">
                             </div>
                             <div class="col">
                                 <label>Last Name</label>
                                 <input type="text" required maxlength="50" class="form-control" id="last_name"
-                                    name="lastname" ngModel>
+                                    name="lastname" [(ngModel)]="lastname">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="email_addr">Email address</label>
                                 <input type="email" required maxlength="50" class="form-control" id="email_addr"
-                                    name="email" placeholder="name@example.com" ngModel>
+                                    name="email" placeholder="name@example.com" [(ngModel)]="email">
                             </div>
                             <div class="col">
                                 <label for="phone_input">Phone</label>
                                 <input type="tel" required maxlength="50" class="form-control" id="phone_input"
-                                    name="phoneno" placeholder="Phone" ngModel>
+                                    name="phoneno" placeholder="Phone" [(ngModel)]="phoneno">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" ngModel></textarea>
+                                <textarea class="form-control" id="message" name="message" rows="5" [(ngModel)]="message"></textarea>
                             </div>
                         </div>
                         <div class="row p-3">
@@ -50,16 +50,33 @@
         </div>
         <div class="col-sm p-5" *ngIf="Allcontacts">
                 <h6 class="">Comments/Feedback</h6><hr>
-            <div class="d-flex justify-content-center p-2 bg-warning">
-                <div class="card" *ngFor="let contact of Allcontacts">
-                    <div class="card-body">
-                        <h5 class="title">{{contact.firstname}} {{contact.lastname}}</h5>
-                        <p>Mobile : {{contact.phoneno}}</p>
-                        <p>Email : {{contact.email}}</p>
-                        <p>Message : {{contact.message}}</p>
+            <div class="row justify-content-start p-2 bg-warning">
+                <div class="card"  *ngFor="let contact of Allcontacts">
+                    <div class="row"><div class="col-sm-4">
+                        <img class="img-thumbnail rounded mx-auto d-block" src="assets/demo.png" alt="pic"/>
+                    </div>
+                    <div class="col-sm-8">
+                        <li class="card-body" style="display: block;">
+                            <small class="fw-bold">{{contact.firstname}} {{contact.lastname}}</small><br>
+                            <span class="small">Mobile : {{contact.phoneno}}</span><br>
+                            <span class="small">Email : {{contact.email}}</span><br>
+                            <span class="small">Comments : {{contact.message}}</span>
+                        </li>
+                    </div>
+                      
                     </div>
                 </div>
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm justify-content-end">
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">1</span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+              </nav>
             </div>
+            
         </div>
     </div>
 

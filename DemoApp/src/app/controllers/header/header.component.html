@@ -1,44 +1,36 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-    <!-- Container wrapper -->
-    <div class="d-flex">
-        <!-- Navbar brand -->
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarButtonsExample">
-            <a class="navbar-brand me-2">
-                <img src="assets/demo.png" height="40" alt="" loading="lazy" style="margin-top: -1px;" />
-            </a>
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<nav class="navbar sticky-top navbar-expand-md navbar-light bg-primary">
+    <a class="navbar-brand" >
+        <img src="assets/demo.png" height="40" alt="" loading="lazy" style="margin-top: -1px;" />
+    </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngFor="let user of userDtls">
+                <small>
+                <span class="text-white" > Welcome Mr. {{user.name}}</span><br>
+                <span class="text-white" > IP: {{user.last_ip}}</span><br>
+                <span class="text-white" > Login Count: {{user.logins_count}}</span><br>
+                <span class="text-white" > Last Login: {{user.last_login}}</span>
+            </small>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a routerLink="/home" class="nav-link">Home</a>
+            </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-            </ul>
-            <!-- Left links -->
-        </div>
-        <div>
-            <div class="d-flex justify-content-end">
-                <button routerLink="login" *ngIf="!isLoginUser" class="btn btn-light px-3 me-2">Login</button>
-                <button (click)="logout()" *ngIf="isLoginUser" class="btn btn-light px-3 me-2">Logout</button>
-                <!-- <button type="button" class="btn btn-link px-3 me-2">
-            Login
-          </button>
-          <button type="button" class="btn btn-primary me-3">
-            Sign up for free
-          </button> -->
-                <a routerLink="home" class="btn btn-light">Home</a>
-                <a routerLink="contact" class="btn btn-light">Contact</a>
-                <a routerLink="about" class="btn btn-light">About</a>
-                <!-- <a
-            class="btn btn-dark px-3"
-            href="https://github.com/mdbootstrap/mdb-ui-kit"
-            role="button"
-            ><i class="fab fa-github"></i
-          ></a> -->
-            </div>
-        </div>
-        <!-- Collapsible wrapper -->
+                <a routerLink="/contact" class="nav-link">Contact</a>
+            </li>
+                <li class="nav-item">
+                <a routerLink="/about" class="nav-link">About</a>
+            </li>
+                <li class="nav-item">
+                <a routerLink="/login" *ngIf="!UserLiggedIn" class="nav-link">Login</a>
+            </li>
+                <li class="nav-item">
+                <a (click)="logout()" *ngIf="UserLiggedIn" class="nav-link logout">Logout</a>
+            </li>
+        </ul>
     </div>
-    <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
+
+
