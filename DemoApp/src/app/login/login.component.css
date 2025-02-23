@@ -7,5 +7,6 @@
 }
 input.ng-invalid.ng-touched{
     border: red 1px solid;
+    border-radius: 5px;
 }
 .error{color: red;}

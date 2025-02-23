@@ -18,12 +18,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({message:"Welcome to bezkoder application."});
 });
 
 require("./app/routes/tutorial.routes.js")(app);
 require("./App/routes/user.routes")(app);
 require("./App/routes/appmenu.routes")(app);
+require("./App/routes/contact.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

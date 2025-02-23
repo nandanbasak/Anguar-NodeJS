@@ -12,7 +12,7 @@ const menuItems = function (items) {
 };
 
 menuItems.create = (newItems, results) => {
-  sql.query("insert into t_menu_items SET ?", newItems, (err, res) => {
+  sql.connectToServer.query("insert into menu_item_master SET ?", newItems, (err, res) => {
     if (err) {
       console.log("Error Menu Items Create: ", err);
       results(err, null);
@@ -24,12 +24,12 @@ menuItems.create = (newItems, results) => {
 };
 
 menuItems.getAll = (menuName, result) => {
-  let query = "SELECT * FROM t_menu_items";
+  let query = "SELECT * FROM menu_item_master";
 
   if (menuName) {
     query += ` WHERE title LIKE '%${menuName}%'`;
   }
-  sql.query(query, (err, res) => {
+  sql.connectToServer.query(query, (err, res) => {
     if (err) {
       console.log("Error gelAll menu: ", err);
       result(null, err);
@@ -41,7 +41,7 @@ menuItems.getAll = (menuName, result) => {
 };
 
 menuItems.findById = (id, result) => {
-  sql.query(`SELECT * FROM t_menu_items WHERE MENU_CODE = ${id}`, (err, res) => {
+  sql.connectToServer.query(`SELECT * FROM menu_item_master WHERE MENU_CODE = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
