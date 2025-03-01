@@ -1,4 +1,4 @@
-const sqldb = require('/Config/db');
+const sqldb = require('../Config/db');
 
 const contactUs = function (objContact) {
     this.user_id = objContact.user_id;
