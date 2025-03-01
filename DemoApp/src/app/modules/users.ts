@@ -1,12 +1,14 @@
+import { identifierModuleUrl } from "@angular/compiler";
+
 export class Users{
-    user_id: string;
+    id :string;
+    first_name:string;
+    last_name:string;
+    dateofbirth:string;
+    mobileno:number;
     password:string;
-    email: string;
-    name: string;
-    last_ip: string;
-    logins_count: number;
-    created_at: Date;
-    updated_at: Date;
-    last_login: Date;
-    email_verified: boolean
+    re_password:string;
+    role:string;
+    email:string;
 }
+

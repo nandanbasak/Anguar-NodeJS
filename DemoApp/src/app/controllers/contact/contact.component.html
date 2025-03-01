@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="text-center text-uppercase">contact us</h3>
+    <h3 class="text-center text-uppercase">Contact us</h3>
     <hr>
     <p class="text-center w-75 m-auto">We're here to help and answer any questions you might have. If you experience any
         further problems or any suggestion or any feedback,
@@ -13,12 +13,12 @@
                             <div class="col">
                                 <label>First Name</label>
                                 <input type="text" required maxlength="50" class="form-control" id="first_name"
-                                    name="firstname" [(ngModel)]="firstname">
+                                    name="first_name" [(ngModel)]="first_name">
                             </div>
                             <div class="col">
                                 <label>Last Name</label>
                                 <input type="text" required maxlength="50" class="form-control" id="last_name"
-                                    name="lastname" [(ngModel)]="lastname">
+                                    name="last_name" [(ngModel)]="last_name">
                             </div>
                         </div>
                         <div class="row">
@@ -30,13 +30,13 @@
                             <div class="col">
                                 <label for="phone_input">Phone</label>
                                 <input type="tel" required maxlength="50" class="form-control" id="phone_input"
-                                    name="phoneno" placeholder="Phone" [(ngModel)]="phoneno">
+                                    name="phone" placeholder="Phone" [(ngModel)]="phone">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" [(ngModel)]="message"></textarea>
+                                <textarea class="form-control" id="message" name="coments" rows="5" [(ngModel)]="coments"></textarea>
                             </div>
                         </div>
                         <div class="row p-3">
@@ -57,10 +57,10 @@
                     </div>
                     <div class="col-sm-8">
                         <li class="card-body" style="display: block;">
-                            <small class="fw-bold">{{contact.firstname}} {{contact.lastname}}</small><br>
-                            <span class="small">Mobile : {{contact.phoneno}}</span><br>
+                            <small class="fw-bold">{{contact.first_name}} {{contact.last_name}}</small><br>
+                            <span class="small">Mobile : {{contact.phone}}</span><br>
                             <span class="small">Email : {{contact.email}}</span><br>
-                            <span class="small">Comments : {{contact.message}}</span>
+                            <span class="small">Comments : {{contact.coments}}</span>
                         </li>
                     </div>
                       

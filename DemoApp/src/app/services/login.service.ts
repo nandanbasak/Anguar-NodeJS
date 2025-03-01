@@ -27,7 +27,7 @@ export class LoginService {
         const users: Users[] = [];
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
-            users.push({ ...res[key], user_id: key })
+            users.push({ ...res[key], id: key })
           }
         }
         console.log(`user list >> ${JSON.stringify(users)}`);

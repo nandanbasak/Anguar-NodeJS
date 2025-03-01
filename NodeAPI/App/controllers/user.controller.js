@@ -8,14 +8,15 @@ exports.create = (req, res) => {
   }
   //Create user
   const user = new User({
-    id: req.boby.id,
-    user_name: req.body.user_name,
+    id:         req.boby.id,
     first_name: req.boby.first_name,
-    last_name: req.boby.last_name,
+    last_name:  req.boby.last_name,
     dateofbirth: req.boby.dateofbirth,
-    mobileno: req.boby.mobileno,
-    password: req.boby.password,
+    mobileno:   req.boby.mobileno,
+    password:   req.boby.password,
     re_password: req.boby.re_password || false,
+    role: req.boby.role,
+    email: req.boby.email    
   });
 
   User.create(user, (err, data) => {

@@ -1,4 +1,4 @@
-const sqldb = require('../Config/db');
+const sqldb = require('/Config/db');
 
 const contactUs = function (objContact) {
     this.user_id = objContact.user_id;
@@ -11,6 +11,7 @@ const contactUs = function (objContact) {
 };
 
 contactUs.create = (objCont, res) => {
+    console.log(`create ContactUs : ${JSON.stringify(objCont)}` )
     const Qry = "insert into feedback_master SET ?";
     sqldb.connectToServer.query(Qry, objCont, (error, response) => {
         if (error) {

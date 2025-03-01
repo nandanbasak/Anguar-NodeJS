@@ -1,18 +1,19 @@
-const sql = require("../Config/db.js");
+const sql = require("/Config/db.js");
 
 // constructor
 const User = function (user) {
   this.id = user.id;
-  this.user_name = user.user_name;
   this.first_name = user.first_name;
   this.last_name = user.last_name;
   this.dateofbirth = user.dateofbirth;
   this.mobileno = user.mobileno;
   this.password = user.password;
   this.re_password = user.re_password;
+  this.role = user.role;
+  this.email = user.email;
 };
-
 User.create = (newUser, result) => {
+  console.log(`create user : ${JSON.stringify(newUser)}` )
   sql.connectToServer.query("INSERT INTO user_master SET ?", newUser, (err, res) => {
     if (err) {
       console.log("error: ", err);

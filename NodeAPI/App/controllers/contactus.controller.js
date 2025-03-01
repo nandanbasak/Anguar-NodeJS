@@ -8,7 +8,7 @@ exports.create = (req, res) => {
             Message: "Content cannot be empty",
         });
     }
-
+console.log("Add Feedback "+ req);
     const constactUs = new ConstactUs({
         user_id: req.boby.user_id,
         coments: req.boby.coments,
