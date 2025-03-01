@@ -2,10 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable, observable, pipe, Subject } from 'rxjs';
 import { CommonService } from './common.service';
-import { Key } from 'protractor';
 import { Users } from '../modules/users';
 import { map } from 'rxjs/operators';
-import { ReturnStatement } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +46,8 @@ export class LoginService {
   }
   setLoginUserDetails(data: any) {
     this.dtlsUserLoginSubBe.next(data);
+  }
+  registerUser(body:any){
+    return this.http.post('https://anguar-nodejs.onrender.com/api/users/register',body);
   }
 }

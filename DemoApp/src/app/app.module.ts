@@ -18,6 +18,7 @@ import { ContactComponent } from './controllers/contact/contact.component';
 import { AboutComponent } from './controllers/about/about.component';
 import { CanDeactivateGuard } from './Guard/can-deactivate.guard';
 import { CommonService } from './services/common.service';
+import { RegisterComponent } from './controllers/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CommonService } from './services/common.service';
     FooterComponent,
     HeaderComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    RegisterComponent
     
   ],
   imports: [
