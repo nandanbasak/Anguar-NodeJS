@@ -9,12 +9,12 @@ import { LoginService } from '../services/login.service';
 export class AuthGuard implements CanActivate {
   constructor(private loginService:LoginService,private router:Router){}
   IsLogin:boolean=false;
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
       //Logged in user can view the page 
      this.loginService.isUserLoggedinSubBe$.subscribe(isloging=>{
       this.IsLogin=isloging;
+      if(!isloging)
+      this.router.navigate(['login']);
       //console.log(`canActivate() inner ${isloging}`);
       });    
     return this.IsLogin;

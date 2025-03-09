@@ -1,7 +1,7 @@
-import { identifierModuleUrl } from "@angular/compiler";
-
-export class Users{
-    id :string;
+// Objective: Define the structure of the user object.
+// The user object is used to store the user details.
+export interface Users{
+    id:number;
     first_name:string;
     last_name:string;
     dateofbirth:string;
@@ -10,5 +10,7 @@ export class Users{
     re_password:string;
     role:string;
     email:string;
+    created_on:Date;
+    status:number;
+    //gender:string;
 }
-

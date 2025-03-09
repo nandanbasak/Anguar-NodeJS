@@ -1,8 +1,8 @@
 const sql = require("../Config/db.js");
-
+const bcrypt = require("bcrypt");
 // constructor
 const User = function (user) {
-  this.id = user.id;
+  //this.id = user.id;
   this.first_name = user.first_name;
   this.last_name = user.last_name;
   this.dateofbirth = user.dateofbirth;
@@ -11,10 +11,15 @@ const User = function (user) {
   this.re_password = user.re_password;
   this.role = user.role;
   this.email = user.email;
+  this.gender = user.gender;
 };
 User.create = (newUser, result) => {
-  console.log(`create user : ${JSON.stringify(newUser)}` )
-  sql.connectToServer.query("INSERT INTO user_master SET ?", newUser, (err, res) => {
+  console.log(`create user : ${JSON.stringify(newUser)}`)
+  const query = `INSERT INTO user_master (first_name, last_name, dateofbirth, mobileno, password, re_password, role, email) 
+                                VALUES ('${newUser.first_name}','${newUser.last_name}', '${newUser.dateofbirth}', '${newUser.mobileno}', '${newUser.password}', '${newUser.re_password}', '${newUser.role}', '${newUser.email}')`;
+  console.log("User Register: " + query);
+  // sql.connectToServer.query("INSERT INTO user_master SET ?", newUser, (err, res) => {
+  sql.connectToServer.query(query, newUser, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -25,7 +30,30 @@ User.create = (newUser, result) => {
     result(null, { id: res.id, ...newUser });
   });
 };
+User.login = (req, res) => {
+  console.log(`create user login: ${JSON.stringify(req)}`);
+  const { email, password } = req;
+  // Find the user by email
+  const query = `SELECT * FROM user_master WHERE email = '${email}' and password='${password}';`;
+  console.log("User Login: " + query);
+  sql.connectToServer.query(query, [email], async (err, results) => {
+    if (err) throw err;
 
+    console.log(`create user login: ${JSON.stringify(results)}`)
+    if (results.length > 0) //if user found in database
+    {
+      res(err,results);
+      return;
+    }
+    if(results.length == 0 || results==null) //if user not found in database
+    {
+      res(err,null);
+      return;
+    }
+
+    res(err,results);  
+  });
+};
 User.findById = (id, result) => {
   sql.connectToServer.query(`SELECT * FROM user_master WHERE id = ${id}`, (err, res) => {
     if (err) {
@@ -53,7 +81,7 @@ User.getAll = (id, result) => {
   }
   debugger;
   console.log(query);
-  
+
   sql.connectToServer.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);

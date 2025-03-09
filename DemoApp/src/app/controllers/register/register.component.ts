@@ -28,26 +28,26 @@ export class RegisterComponent implements OnInit {
       role: new FormControl('PLEASE SELECT ROLE', Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       gender: new FormControl('male')
-    }, { validators: this.passwordMatchValidator }
-    );
+    },{validators:this.passwordMatchValidator}
+  );
   }
-  // Custom validator to check if passwords match
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password')?.value;
-    const confirmPassword = form.get('re_password')?.value;
-    if (password !== confirmPassword) {
-      return { passwordMismatch: true };
-    } else if (password === confirmPassword) {
-      return { passwordMatch: true };
+    // Custom validator to check if passwords match
+    passwordMatchValidator(form: FormGroup) {
+      const password = form.get('password')?.value;
+      const confirmPassword = form.get('re_password')?.value;
+      if (password !== confirmPassword) {
+          return { passwordMismatch: true };
+      } else if (password === confirmPassword) {
+        return { passwordMatch: true };
     }
-    return null;
+      return null;
   }
   onRegister() {
-    console.log(`Register Form: ${JSON.stringify(this.regiterForm.value)}`);
-    // this.loginService.registerUser(this.regiterForm.value).subscribe((response) => {
-    //   this.userid = response;
-    //   console.log(`Register Form: ${JSON.stringify(response)}`);
-    // });
+    //console.log(`Register Form: ${JSON.stringify(this.regiterForm.value)}`);
+    this.loginService.registerUser(this.regiterForm.value).subscribe((response) => {
+      this.userid = response;
+      console.log(`Register Form: ${JSON.stringify(response)}`);
+    });
   }
   changeRole(e) {
     this.regiterForm.controls['role'].setValue(e.target.value);

@@ -25,7 +25,8 @@ export class LoginService {
         const users: Users[] = [];
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
-            users.push({ ...res[key], id: key })
+            // users.push({ ...res[key], id: key })
+            users.push({ ...res[key] });
           }
         }
         console.log(`user list >> ${JSON.stringify(users)}`);
@@ -36,6 +37,10 @@ export class LoginService {
   allusers() {
     return this.common.getRequest("../assets/users.json");
 
+  }
+  loginUser(body): Observable<Users[]> {
+    //return this.http.post('https://anguar-nodejs.onrender.com/api/users/login',body);
+    return this.http.post<Users[]>(' http://localhost:8080/api/users/login',body);   
   }
   setUserLoggedin(data: boolean) {
     //console.log(`setUserLoggedin status >> ${data}`);
@@ -48,6 +53,14 @@ export class LoginService {
     this.dtlsUserLoginSubBe.next(data);
   }
   registerUser(body:any){
-    return this.http.post('https://anguar-nodejs.onrender.com/api/users/register',body);
+    const options = {
+      method: 'POST',
+      headers: {
+          'Content-type': 'application/json'
+      }
+  }
+    console.log(`Register Service(login): ${JSON.stringify(body)}`);
+    //return this.http.post('https://anguar-nodejs.onrender.com/api/users/register',body,options);
+    return this.http.post('http://localhost:8080/api/users/register',body);
   }
 }

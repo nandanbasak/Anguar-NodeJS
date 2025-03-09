@@ -10,7 +10,7 @@ import { Users } from '../modules/users';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  userid: string; password: string; userList: Users[] = [];
+  email: string; password: string; userList: Users[] = [];
   visible: boolean = false;
   changetype: boolean = true;
   resData: any;
@@ -18,17 +18,29 @@ export class LoginComponent implements OnInit {
   isUserLoggedIn: boolean = false;
   constructor(private loginservice: LoginService, private router: Router) { }
   ProccedLogin() {
-debugger;
+    debugger;
     if (this.loginForm.valid) {
-      this.userid = this.loginForm.controls['email'].value;
+      this.email = this.loginForm.controls['email'].value;
       this.password = this.loginForm.controls['password'].value;
 
-      this.loginservice.allusers().subscribe((users) => {
+      const body = {
+        email: this.email,
+        password: this.password
+      }
+
+      this.loginservice.loginUser(body).subscribe((users) => {
         this.userList = users;
-        console.log(`Component user list >> ${JSON.stringify(this.userList)}`);
-        this.userList = this.userList.filter(u => 
-          u.email === this.userid && u.password === this.password 
+        console.log(`Component user list >> ${JSON.stringify(users)}`);
+        this.userList = this.userList.filter(u =>
+          u.email === this.email && u.password === this.password
         );
+        ///from local json file
+        // this.loginservice.allusers().subscribe((users) => {
+        //   this.userList = users;
+        //   console.log(`Component user list >> ${JSON.stringify(this.userList)}`);
+        //   this.userList = this.userList.filter(u => 
+        //     u.email === this.userid && u.password === this.password 
+        //   );
         console.log(`Component user list filtered >> ${JSON.stringify(this.userList)}`);
 
         if (this.userList.length > 0) {
@@ -45,12 +57,7 @@ debugger;
       });
 
     }
-    console.log(this.loginForm);
-    // this.loginservice.isUserLoggedinSub.subscribe((data)=>{
-    //   this.isUserLoggedIn=data;
-    // })
 
-    //console.log(`Login user ${this.changetype}`)
   }
   ngOnInit() {
     this.CreateForm();
@@ -58,7 +65,6 @@ debugger;
     //   //console.log(`Component user list >> ${JSON.stringify(data)}`);
     // }
     // );
-    console.log(this.loginForm);
   }
   CreateForm() {
     this.loginForm = new FormGroup({
