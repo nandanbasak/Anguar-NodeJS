@@ -15,7 +15,7 @@ const User = function (user) {
 };
 User.create = (newUser, result) => {
   console.log(`create user : ${JSON.stringify(newUser)}`)
-  const query = `INSERT INTO user_master (first_name, last_name, dateofbirth, mobileno, password, re_password, role, email) 
+  const query = `INSERT INTO ${sql.SchemaName}.user_master (first_name, last_name, dateofbirth, mobileno, password, re_password, role, email) 
                                 VALUES ('${newUser.first_name}','${newUser.last_name}', '${newUser.dateofbirth}', '${newUser.mobileno}', '${newUser.password}', '${newUser.re_password}', '${newUser.role}', '${newUser.email}')`;
   console.log("User Register: " + query);
   // sql.connectToServer.query("INSERT INTO user_master SET ?", newUser, (err, res) => {
@@ -34,7 +34,7 @@ User.login = (req, res) => {
   console.log(`create user login: ${JSON.stringify(req)}`);
   const { email, password } = req;
   // Find the user by email
-  const query = `SELECT * FROM user_master WHERE email = '${email}' and password='${password}';`;
+  const query = `SELECT * FROM ${sql.SchemaName}.user_master WHERE email = '${email}' and password='${password}';`;
   console.log("User Login: " + query);
   sql.connectToServer.query(query, [email], async (err, results) => {
     if (err) throw err;
@@ -55,7 +55,7 @@ User.login = (req, res) => {
   });
 };
 User.findById = (id, result) => {
-  sql.connectToServer.query(`SELECT * FROM user_master WHERE id = ${id}`, (err, res) => {
+  sql.connectToServer.query(`SELECT * FROM ${sql.SchemaName}.user_master WHERE id = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -77,7 +77,7 @@ User.getAll = (id, result) => {
   let query = "SELECT * FROM "+ sql.SchemaName +".user_master";
 
   if (id) {
-    query += ` WHERE title LIKE '%${id}%';`;
+    query += ` WHERE id LIKE '%${id}%';`;
   }
   debugger;
   console.log(query);
@@ -95,7 +95,7 @@ User.getAll = (id, result) => {
 };
 
 User.getAllPublished = result => {
-  sql.connectToServer.query("SELECT * FROM user_master WHERE published=true", (err, res) => {
+  sql.connectToServer.query("SELECT * FROM "+ sql.SchemaName +".user_master WHERE published=true", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -109,7 +109,7 @@ User.getAllPublished = result => {
 
 User.updateById = (id, user, result) => {
   sql.connectToServer.query(
-    "UPDATE user_master SET user_name = ?, first_name = ?, last_name = ?,dateofbirth = ? ,  mobileno= ?,  password= ?,  re_password= ? WHERE id = ?",
+    "UPDATE  "+ sql.SchemaName +".user_master SET user_name = ?, first_name = ?, last_name = ?,dateofbirth = ? ,  mobileno= ?,  password= ?,  re_password= ? WHERE id = ?",
     [
       user.user_name,
       user.first_name,
@@ -140,7 +140,7 @@ User.updateById = (id, user, result) => {
 };
 
 User.remove = (id, result) => {
-  sql.connectToServer.query("DELETE FROM user_master WHERE id = ?", id, (err, res) => {
+  sql.connectToServer.query("DELETE FROM  "+ sql.SchemaName +".user_master WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -159,7 +159,7 @@ User.remove = (id, result) => {
 };
 
 User.removeAll = result => {
-  sql.connectToServer.query("DELETE FROM user_master", (err, res) => {
+  sql.connectToServer.query("DELETE FROM  "+ sql.SchemaName +".user_master", (err, res) => {
     if (err) {
       console.log("error: ", err);
       (null, err);

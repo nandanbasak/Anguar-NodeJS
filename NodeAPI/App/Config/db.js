@@ -10,7 +10,7 @@ const dbConfig = require("./db.config.js");
 //   port:dbConfig.poolLocal.PORT,
 //   connectTimeout: 10000 // Optional: Set a timeout for the connection
 // });
-const SchemaName = dbConfig.schemaName.DB; // Schema Name
+const SchemaName = dbConfig.poolOnServer.DB; // Schema Name
 const connectToServer = mysql.createConnection({
   host: dbConfig.poolOnServer.HOST,
   user: dbConfig.poolOnServer.USER,
@@ -35,4 +35,4 @@ connectToServer.on('error', (err) => {
 //   console.error('MySQL Local connection error:', err);
 // });
 // module.exports = {connectToServer,connectToLocal};
-module.exports = {connectToServer};
+module.exports = {connectToServer,SchemaName};
