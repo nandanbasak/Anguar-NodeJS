@@ -76,3 +76,4 @@ exports.findOne = (req, res) => {
     } else res.send(data);
   });
 };
+//set NODE_OPTIONS=--openssl-legacy-provider
