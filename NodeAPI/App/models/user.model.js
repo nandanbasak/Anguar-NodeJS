@@ -74,7 +74,7 @@ User.findById = (id, result) => {
 };
 
 User.getAll = (id, result) => {
-  let query = "SELECT * FROM sql12763557.user_master";
+  let query = "SELECT * FROM "+ sql.SchemaName +".user_master";
 
   if (id) {
     query += ` WHERE title LIKE '%${id}%';`;

@@ -5,6 +5,7 @@
 //   DB: "testdb",
 //   PORT:3302
 // };
+const schemaName= {DB:"appdb"}; //Schema Name
 const poolOnServer = {
   HOST: "192.168.1.9",
   USER: "vm",
@@ -27,4 +28,4 @@ const poolOnServer = {
 // Port number: 3306
 
 
-module.exports={poolOnServer};
+module.exports={poolOnServer,schemaName};
