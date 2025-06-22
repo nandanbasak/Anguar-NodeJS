@@ -17,15 +17,18 @@ const connectToServer = mysql.createConnection({
   password: dbConfig.poolOnServer.PASSWORD,
   database: dbConfig.poolOnServer.DB,
   port:dbConfig.poolOnServer.PORT,
-  connectTimeout: 10000 // Optional: Set a timeout for the connection
+  connectTimeout: 10000, // Optional: Set a timeout for the connection
+  enableKeepAlive: true, // Optional: Enable keep-alive for the connection
+  keepAliveInitialDelay: 10000 // Optional: Set the initial delay for keep-alive
+  // Optional: Set the connection limit
 });
 // open the MySQL connection
-connectToServer.connect(err => {
+connectToServer.connect((err) => {
   if (err) {
-    console.error('Error connecting to MySQL:', err);
-    return;
-}
-  console.log("Successfully connected to the database.");
+    console.error('MySQL connection error:', err.message);
+  } else {
+    console.log('Connected to MySQL database.');
+  }
 });
 // Handle unhandled error events for both connections
 connectToServer.on('error', (err) => {
