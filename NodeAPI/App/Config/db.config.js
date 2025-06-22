@@ -7,7 +7,7 @@
 // };
 const schemaName= {DB:"appdb"}; //Schema Name
 const poolOnServer = {
-  HOST: "192.168.1.9",
+  HOST: "223.185.30.80",
   USER: "vm",
   PASSWORD: "Mysql@1234",
   DB: "APPDB",
