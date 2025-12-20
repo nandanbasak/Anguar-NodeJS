@@ -1,0 +1,33 @@
+[{
+    "id": "0",
+    "name": "admin",
+    "password": "admin",
+    "email": "admin@example.com",
+    "avatar": "https://ui-avatars.com/api/?name=Alice&background=2563eb&color=fff",
+    "active": true
+  },
+  {
+    "id": "1",
+    "name": "alice",
+    "password": "alice123",
+    "email": "alice@example.com",
+    "avatar": "https://ui-avatars.com/api/?name=Alice&background=2563eb&color=fff",
+    "active": true
+  },
+  {
+    "id": "2",
+    "name": "bob",
+    "password": "bob456",
+    "email": "bob@example.com",
+    "avatar": "https://ui-avatars.com/api/?name=Bob&background=2563eb&color=fff",
+    "active": false
+  },
+  {
+    "id": "3",
+    "name": "carol",
+    "password": "carol789",
+    "email": "carol@example.com",
+    "avatar": "https://ui-avatars.com/api/?name=Carol&background=2563eb&color=fff",
+    "active": true
+  }
+]
