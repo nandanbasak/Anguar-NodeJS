@@ -1,0 +1,139 @@
+/* Responsive cards container */
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Individual card */
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #fff;
+  flex: 1 1 220px;
+  max-width: 260px;
+  min-width: 160px;
+  box-shadow: 0 2px 6px rgba(16,24,40,0.04);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.user-card:hover,
+.user-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(16,24,40,0.08);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  background: #f0f0f0;
+  aspect-ratio: 1/1;
+}
+
+.user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+  font-weight: 600;
+}
+
+.user-info p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+/* Pill component */
+.pill {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: color-mix(in srgb, #3b82f6 6%, transparent);
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  outline: none;
+  transition: box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+
+.pill::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.pill:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.12);
+  background: color-mix(in srgb, #3b82f6 8%, transparent);
+}
+
+/* Users page layout */
+.users-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center heading + input */
+}
+
+/* make the search input medium and centered */
+.pill {
+  width: 100%;
+  max-width: 480px; /* medium width */
+  margin: 0 0 1rem 0; /* centered via container align-items */
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: color-mix(in srgb, #3b82f6 6%, transparent);
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  outline: none;
+  transition: box-shadow 120ms ease, border-color 120ms ease, background 120ms ease;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+
+/* responsive tweak */
+@media (max-width: 600px) {
+  .pill {
+    max-width: 100%;
+  }
+  .user-cards {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+  .user-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+}

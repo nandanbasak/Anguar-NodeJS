@@ -1,0 +1,29 @@
+.dashboard-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+.dashboard-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.dashboard-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(16,24,40,0.07);
+  padding: 2rem 2.5rem;
+  min-width: 160px;
+}
+.card-title {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.card-value {
+  color: #0f172a;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
