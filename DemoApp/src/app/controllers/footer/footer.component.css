@@ -1,0 +1,13 @@
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: #f8f9fa !important;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    width: 75px;
+    height: 50px;
+}

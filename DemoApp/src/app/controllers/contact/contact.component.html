@@ -1,0 +1,122 @@
+<div class="container">
+    <h3 class="text-center text-uppercase">Contact us</h3>
+    <hr>
+    <p class="text-center w-75 m-auto">We're here to help and answer any questions you might have. If you experience any
+        further problems or any suggestion or any feedback,
+        please feel free to contact us. We look forward to hearing from you.</p>
+    <div class="row">
+        <div class="col-sm">
+            <div class="d-flex justify-content-center p-5">
+                <div class="bg-warning text-dark p-5">
+                    <form id="contactform" #contactform="ngForm" (ngSubmit)="onSubmit(contactform.value)">
+                        <div class="row">
+                            <div class="col">
+                                <label>First Name</label>
+                                <input type="text" required maxlength="50" class="form-control" id="first_name"
+                                    name="first_name" [(ngModel)]="first_name">
+                            </div>
+                            <div class="col">
+                                <label>Last Name</label>
+                                <input type="text" required maxlength="50" class="form-control" id="last_name"
+                                    name="last_name" [(ngModel)]="last_name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="email_addr">Email address</label>
+                                <input type="email" required maxlength="50" class="form-control" id="email_addr"
+                                    name="email" placeholder="name@example.com" [(ngModel)]="email">
+                            </div>
+                            <div class="col">
+                                <label for="phone_input">Phone</label>
+                                <input type="tel" required maxlength="50" class="form-control" id="phone_input"
+                                    name="phone" placeholder="Phone" [(ngModel)]="phone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" name="coments" rows="5" [(ngModel)]="coments"></textarea>
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="d-grid justify-content-md-end">
+                                <input type="submit" value="Post" class="btn btn-primary px-4 btn-sm">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm p-5" *ngIf="Allcontacts">
+                <h6 class="">Comments/Feedback</h6><hr>
+            <div class="row justify-content-start p-2 bg-warning">
+                <div class="card"  *ngFor="let contact of Allcontacts">
+                    <div class="row"><div class="col-sm-4">
+                        <img class="img-thumbnail rounded mx-auto d-block" src="assets/demo.png" alt="pic"/>
+                    </div>
+                    <div class="col-sm-8">
+                        <li class="card-body" style="display: block;">
+                            <small class="fw-bold">{{contact.first_name}} {{contact.last_name}}</small><br>
+                            <span class="small">Mobile : {{contact.phone}}</span><br>
+                            <span class="small">Email : {{contact.email}}</span><br>
+                            <span class="small">Comments : {{contact.coments}}</span>
+                        </li>
+                    </div>
+                      
+                    </div>
+                </div>
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm justify-content-end">
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">1</span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+              </nav>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                    <i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
+                    <h4 class="text-uppercase mb-5">call us</h4>
+                    <p>+8801683615582,+8801750603409</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                    <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+                    <h4 class="text-uppercase mb-5">office loaction</h4>
+                    <address>Suite 02, Level 12, Sahera Tropical Center </address>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                    <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+                    <h4 class="text-uppercase mb-5">office loaction</h4>
+                    <address>Suite 02, Level 12, Sahera Tropical Center </address>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                    <i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
+                    <h4 class="text-uppercase mb-5">email</h4>
+                    <p>http://al.a.noman1416@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,11 +4,12 @@ module.exports = app => {
 
     var router =require("express").Router();
   
-    router.post("/", users.create);
+    router.post("/register", users.create);
+    router.post("/login", users.Login);
 
-    router.get("/", users.findAll);
+    router.get("/all", users.findAll);
 
-    router.get("/:id", users.findOne);
+    router.get("/anyone:id", users.findOne);
     
     app.use('/api/users', router);
   };

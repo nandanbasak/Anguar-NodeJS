@@ -1,19 +1,25 @@
 const sql = require("../Config/db.js");
-
+//const bcrypt = require("bcrypt");
 // constructor
-const User = function(user) {
-  this.id = user.id;
-  this.user_name = user.user_name;
+const User = function (user) {
+  //this.id = user.id;
   this.first_name = user.first_name;
   this.last_name = user.last_name;
   this.dateofbirth = user.dateofbirth;
   this.mobileno = user.mobileno;
   this.password = user.password;
   this.re_password = user.re_password;
+  this.role = user.role;
+  this.email = user.email;
+  this.gender = user.gender;
 };
-
 User.create = (newUser, result) => {
-  sql.query("INSERT INTO t_user_master SET ?", newUser, (err, res) => {
+  console.log(`create user : ${JSON.stringify(newUser)}`)
+  const query = `INSERT INTO ${sql.SchemaName}.user_master (first_name, last_name, dateofbirth, mobileno, password, re_password, role, email) 
+                                VALUES ('${newUser.first_name}','${newUser.last_name}', '${newUser.dateofbirth}', '${newUser.mobileno}', '${newUser.password}', '${newUser.re_password}', '${newUser.role}', '${newUser.email}')`;
+  console.log("User Register: " + query);
+  // sql.connectToServer.query("INSERT INTO user_master SET ?", newUser, (err, res) => {
+  sql.connectToServer.query(query, newUser, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -24,9 +30,32 @@ User.create = (newUser, result) => {
     result(null, { id: res.id, ...newUser });
   });
 };
+User.login = (req, res) => {
+  console.log(`create user login: ${JSON.stringify(req)}`);
+  const { email, password } = req;
+  // Find the user by email
+  const query = `SELECT * FROM ${sql.SchemaName}.user_master WHERE email = '${email}' and password='${password}';`;
+  console.log("User Login: " + query);
+  sql.connectToServer.query(query, [email], async (err, results) => {
+    if (err) throw err;
 
+    console.log(`create user login: ${JSON.stringify(results)}`)
+    if (results.length > 0) //if user found in database
+    {
+      res(err,results);
+      return;
+    }
+    if(results.length == 0 || results==null) //if user not found in database
+    {
+      res(err,null);
+      return;
+    }
+
+    res(err,results);  
+  });
+};
 User.findById = (id, result) => {
-  sql.query(`SELECT * FROM t_user_master WHERE id = ${id}`, (err, res) => {
+  sql.connectToServer.query(`SELECT * FROM ${sql.SchemaName}.user_master WHERE id = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -44,14 +73,16 @@ User.findById = (id, result) => {
   });
 };
 
-User.getAll = (title, result) => {
-  let query = "SELECT * FROM t_user_master";
+User.getAll = (id, result) => {
+  let query = "SELECT * FROM "+ sql.SchemaName +".user_master";
 
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+  if (id) {
+    query += ` WHERE id LIKE '%${id}%';`;
   }
+  debugger;
+  console.log(query);
 
-  sql.query(query, (err, res) => {
+  sql.connectToServer.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -64,7 +95,7 @@ User.getAll = (title, result) => {
 };
 
 User.getAllPublished = result => {
-  sql.query("SELECT * FROM t_user_master WHERE published=true", (err, res) => {
+  sql.connectToServer.query("SELECT * FROM "+ sql.SchemaName +".user_master WHERE published=true", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -77,17 +108,17 @@ User.getAllPublished = result => {
 };
 
 User.updateById = (id, user, result) => {
-  sql.query(
-    "UPDATE t_user_master SET user_name = ?, first_name = ?, last_name = ?,dateofbirth = ? ,  mobileno= ?,  password= ?,  re_password= ? WHERE id = ?",
+  sql.connectToServer.query(
+    "UPDATE  "+ sql.SchemaName +".user_master SET user_name = ?, first_name = ?, last_name = ?,dateofbirth = ? ,  mobileno= ?,  password= ?,  re_password= ? WHERE id = ?",
     [
-        user.user_name,
-        user.first_name,
-        user.last_name,
-        user.dateofbirth,
-        user.mobileno,
-        user.password,
-        user.re_password,
-        id
+      user.user_name,
+      user.first_name,
+      user.last_name,
+      user.dateofbirth,
+      user.mobileno,
+      user.password,
+      user.re_password,
+      id
     ],
     (err, res) => {
       if (err) {
@@ -109,7 +140,7 @@ User.updateById = (id, user, result) => {
 };
 
 User.remove = (id, result) => {
-  sql.query("DELETE FROM t_user_master WHERE id = ?", id, (err, res) => {
+  sql.connectToServer.query("DELETE FROM  "+ sql.SchemaName +".user_master WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -128,10 +159,10 @@ User.remove = (id, result) => {
 };
 
 User.removeAll = result => {
-  sql.query("DELETE FROM t_user_master", (err, res) => {
+  sql.connectToServer.query("DELETE FROM  "+ sql.SchemaName +".user_master", (err, res) => {
     if (err) {
       console.log("error: ", err);
-       (null, err);
+      (null, err);
       return;
     }
 
