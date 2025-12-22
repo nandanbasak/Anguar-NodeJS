@@ -1,36 +1,45 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-light bg-primary">
-    <a class="navbar-brand" >
-        <img src="assets/demo.png" height="40" alt="" loading="lazy" style="margin-top: -1px;" />
-    </a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-            <li class="nav-item" *ngFor="let user of userDtls">
-                <small>
-                <span class="text-white" > Welcome Mr. {{user.name}}</span><br>
-                <span class="text-white" > IP: {{user.last_ip}}</span><br>
-                <span class="text-white" > Login Count: {{user.logins_count}}</span><br>
-                <span class="text-white" > Last Login: {{user.last_login}}</span>
-            </small>
-            </li>
-        </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a routerLink="/home" class="nav-link">Home</a>
-            </li>
-                <li class="nav-item">
-                <a routerLink="/contact" class="nav-link">Contact</a>
-            </li>
-                <li class="nav-item">
-                <a routerLink="/about" class="nav-link">About</a>
-            </li>
-                <li class="nav-item">
-                <a routerLink="/login" *ngIf="!UserLiggedIn" class="nav-link">Login</a>
-            </li>
-                <li class="nav-item">
-                <a (click)="logout()" *ngIf="UserLiggedIn" class="nav-link logout">Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<mat-toolbar class="gradient-bg" color="primary">
+  <span style="display: flex; align-items: center;">
+    <img src="assets/demo.png" height="40" alt="" loading="lazy" style="margin-top: -1px;" />
+    <span class="app-title">Demo Application</span>
+  </span>
+  <span class="spacer"></span>
+  <a mat-icon-button routerLink="/home" aria-label="Home">
+    <mat-icon>home</mat-icon>
+  </a>
+  <a mat-button routerLink="/contact">Contact</a>
+  <a mat-button routerLink="/about">About</a>
+  <a mat-button routerLink="/login" *ngIf="!UserLiggedIn">Login</a>
+  <ng-container *ngIf="UserLiggedIn">
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="userMenu" class="user-menu-btn">
+      <span class="avatar-circle">
+        {{ userDtls[0]?.name ? (userDtls[0]?.name.split(' ')[0][0].toUpperCase() + (userDtls[0]?.name.split(' ')[1] ? userDtls[0]?.name.split(' ')[1][0].toUpperCase() : '')) : '?' }}
+      </span>
+      <span class="user-name">{{userDtls[0]?.name}}</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu" yPosition="above">
+      <div class="user-popup-content">
+        <div class="user-popup-header">
+          <span class="avatar-circle-lg">
+            {{ userDtls[0]?.name ? (userDtls[0]?.name.split(' ')[0][0].toUpperCase() + (userDtls[0]?.name.split(' ')[1] ? userDtls[0]?.name.split(' ')[1][0].toUpperCase() : '')) : '?' }}
+          </span>
+          <div>
+            <div class="user-popup-name">{{userDtls[0]?.name}}</div>
+            <div class="user-popup-email">{{userDtls[0]?.email}}</div>
+          </div>
+        </div>
+        <div class="user-popup-details">
+          <div><mat-icon class="detail-icon">location_on</mat-icon> {{userDtls[0]?.last_ip}}</div>
+          <div><mat-icon class="detail-icon">login</mat-icon> {{userDtls[0]?.logins_count}}</div>
+          <div><mat-icon class="detail-icon">schedule</mat-icon> {{userDtls[0]?.last_login | date:'medium'}}</div>
+        </div>
+        <button mat-stroked-button color="warn" (click)="logout()" class="logout-btn">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </div>
+    </mat-menu>
+  </ng-container>
+</mat-toolbar>
 
 

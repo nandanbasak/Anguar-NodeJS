@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {countries} from 'country-list-json';
-
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { countries } from 'country-list-json';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-countrylist',
@@ -9,19 +8,16 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./countrylist.component.css']
 })
 export class CountrylistComponent implements OnInit {
+  @Output() countryChanged = new EventEmitter<string>();
+  countryList: any;
+  form = new FormGroup({
+    CountryList: new FormControl('', Validators.required)
+  });
   constructor() { }
-
-     countryList:any;
-     form = new FormGroup({
-      CountryList: new FormControl('', Validators.required)
-    });
   ngOnInit() {
-    this.countryList=countries;
-    // console.log("Country List Json >>" + JSON.stringify(countries));
-    // console.log("Country List >>" +this.countryList);
-    
+    this.countryList = countries;
   }
-  changeCountryList(e) {
-    console.log(e.target.value);
+  onCountryChange(e) {
+    this.countryChanged.emit(e.target.value);
   }
 }

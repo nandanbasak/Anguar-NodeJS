@@ -1,3 +1,146 @@
-.logout{
-    cursor: pointer;
+/* Material Design Header Styles */
+mat-toolbar {
+  padding: 0 24px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-bg {
+  background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%) !important;
+}
+
+.app-title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-left: 16px;
+  letter-spacing: 0.5px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Navigation Links */
+a[mat-button],
+a[mat-icon-button] {
+  color: rgba(255, 255, 255, 0.87) !important;
+  margin: 0 8px;
+}
+
+a[mat-button]:hover,
+a[mat-icon-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* User Menu Button */
+.user-menu-btn {
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.user-menu-btn mat-icon {
+  margin: 0 !important;
+}
+
+/* Avatar Styles */
+.avatar-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.avatar-circle-lg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+}
+
+.user-name {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* User Popup Content */
+.user-popup-content {
+  padding: 16px;
+  min-width: 280px;
+}
+
+.user-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-popup-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #212121;
+}
+
+.user-popup-email {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.user-popup-details {
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.user-popup-details div {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.user-popup-details div:last-child {
+  margin-bottom: 0;
+}
+
+/* Logout Button */
+button[mat-flat-button][color="warn"] {
+  width: 100%;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Detail Icons in Popup */
+.detail-icon {
+  font-size: 1.2rem;
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 8px;
+  color: #1976d2;
 }

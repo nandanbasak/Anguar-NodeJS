@@ -27,35 +27,30 @@ export class LoginComponent implements OnInit {
         email: this.email,
         password: this.password
       }
+this.LoginWithJson();
+    //   this.loginservice.loginUser(body).subscribe((users) => {
+    //     this.userList = users;
+    //     console.log(`Component user list >> ${JSON.stringify(users)}`);
+    //     this.userList = this.userList.filter(u =>
+    //       u.email === this.email && u.password === this.password
+    //     );
+    //     //from local json file
+    //     // if (this.userList.length > 0) {
+    //     //   this.isUserLoggedIn = true;
+    //     //   this.loginservice.setUserLoggedin(this.isUserLoggedIn);
+    //     //   this.loginservice.setLoginUserDetails(this.userList);
+    //     //   this.router.navigate(['home']);
+    //     //   console.log(`User Login Success!`);
+    //     // } else {
+    //       // this.isUserLoggedIn = false;
+    //       // this.router.navigate(['login']);
+    //       // console.log(`Not a valid user '${this.loginForm.controls['email'].value}'`)
+    //    // }
+     
 
-      this.loginservice.loginUser(body).subscribe((users) => {
-        this.userList = users;
-        console.log(`Component user list >> ${JSON.stringify(users)}`);
-        this.userList = this.userList.filter(u =>
-          u.email === this.email && u.password === this.password
-        );
-        ///from local json file
-        // this.loginservice.allusers().subscribe((users) => {
-        //   this.userList = users;
-        //   console.log(`Component user list >> ${JSON.stringify(this.userList)}`);
-        //   this.userList = this.userList.filter(u => 
-        //     u.email === this.userid && u.password === this.password 
-        //   );
-        console.log(`Component user list filtered >> ${JSON.stringify(this.userList)}`);
-
-        if (this.userList.length > 0) {
-          this.isUserLoggedIn = true;
-          this.loginservice.setUserLoggedin(this.isUserLoggedIn);
-          this.loginservice.setLoginUserDetails(this.userList);
-          this.router.navigate(['home']);
-          console.log(`User Login Success!`);
-        } else {
-          this.isUserLoggedIn = false;
-          this.router.navigate(['login']);
-          console.log(`Not a valid user '${this.loginForm.controls['email'].value}'`)
-        }
-      });
-
+    // });
+    } else {
+      console.log('Invalid Data');
     }
 
   }
@@ -77,5 +72,25 @@ export class LoginComponent implements OnInit {
     this.visible = !this.visible;
     this.changetype = !this.changetype;
   }
+  LoginWithJson() {
+    this.loginservice.getAllUsers().subscribe((users) => {
+      this.userList = users;
+      console.log(`Component user list >> ${JSON.stringify(users)}`);
+      this.userList = this.userList.filter(u =>
+        u.email === this.email && u.password === this.password
+      );
+      if (this.userList.length > 0) {
+        this.isUserLoggedIn = true;
+        this.loginservice.setUserLoggedin(this.isUserLoggedIn);
+        this.loginservice.setLoginUserDetails(this.userList);
+        this.router.navigate(['home']);
+        console.log(`User Login Success!`);
+      } else {
+        this.isUserLoggedIn = false;
+        this.router.navigate(['login']);
+        console.log(`Not a valid user '${this.loginForm.controls['email'].value}'`)
+      }
+    });
+  } 
 
 }

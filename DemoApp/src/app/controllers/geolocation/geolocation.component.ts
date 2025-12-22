@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./geolocation.component.css']
 })
 export class GeolocationComponent implements OnInit {
+  selectedCountry: string = '';
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onCountryChange(event: any) {
+    this.selectedCountry = event.target ? event.target.value : event;
+  }
 }
