@@ -7,6 +7,9 @@ import { ContactComponent } from './controllers/contact/contact.component';
 import { AboutComponent } from './controllers/about/about.component';
 import { CanDeactivateGuard } from './Guard/can-deactivate.guard';
 import { RegisterComponent } from './controllers/register/register.component';
+import { CategoriesListComponent } from './controllers/categories-list/categories-list.component';
+import { CategoryDetailComponent } from './controllers/category-detail/category-detail.component';
+import { SubcategoryDetailComponent } from './controllers/subcategory-detail/subcategory-detail.component';
 
 
 const routes: Routes = [
@@ -16,7 +19,9 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'contact', component:ContactComponent, canDeactivate:[CanDeactivateGuard]},
   {path:'about', component:AboutComponent},
-
+  {path:'categories', component:CategoriesListComponent, canActivate:[AuthGuard]},
+  {path:'category/:id', component:CategoryDetailComponent, canActivate:[AuthGuard]},
+  {path:'subcategory/:categoryId/:subCategoryId', component:SubcategoryDetailComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

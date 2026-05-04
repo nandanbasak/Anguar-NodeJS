@@ -20,6 +20,10 @@ import { CanDeactivateGuard } from './Guard/can-deactivate.guard';
 import { CommonService } from './services/common.service';
 import { RegisterComponent } from './controllers/register/register.component';
 import { StatelistComponent } from './controllers/statelist/statelist.component';
+import { CategoriesListComponent } from './controllers/categories-list/categories-list.component';
+import { CategoryDetailComponent } from './controllers/category-detail/category-detail.component';
+import { SubcategoryDetailComponent } from './controllers/subcategory-detail/subcategory-detail.component';
+import { SitemapComponent } from './controllers/sitemap/sitemap.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCommonModule, MatOptionModule } from '@angular/material/core';
@@ -30,6 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -43,8 +48,11 @@ import { MatButtonModule } from '@angular/material/button';
     ContactComponent,
     AboutComponent,
     RegisterComponent,
-    StatelistComponent
-
+    StatelistComponent,
+    CategoriesListComponent,
+    CategoryDetailComponent,
+    SubcategoryDetailComponent,
+    SitemapComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +70,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatTooltipModule,
     MatMenuModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [CommonService, LoginService, AuthGuard, CanDeactivateGuard],
   bootstrap: [AppComponent]

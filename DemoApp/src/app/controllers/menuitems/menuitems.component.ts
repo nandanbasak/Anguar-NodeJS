@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonService } from "src/app/services/common.service";
+import { ProductService } from "src/app/services/product.service";
 
 @Component({
   selector: "app-menuitems",
@@ -7,20 +7,56 @@ import { CommonService } from "src/app/services/common.service";
   styleUrls: ["./menuitems.component.css"],
 })
 export class MenuitemsComponent implements OnInit {
-  constructor(private commonservice: CommonService) {}
-  menuItems: any=[];
-  Items: any=[];
+  constructor(private productService: ProductService) {}
+  menuItems: any = [];
+  isExpanded: boolean = true;
+
   ngOnInit() {
-    this.commonservice.getMenuItems().subscribe((data) => {
-      for(const d of (data as any)){
-        this.Items.push({
-          name: d.MENU_NAME,
-          code: d.MENU_CODE
-        });
+    // Fetch categories from ProductService
+    this.productService.getCategories().subscribe({
+      next: (categories) => {
+        this.menuItems = categories.map(cat => ({
+          MENU_NAME: cat.name,
+          MENU_CODE: cat.id,
+          icon: cat.icon
+        }));
+        console.log(`Menu Items loaded: ${this.menuItems.length} categories`);
+      },
+      error: (err) => {
+        console.error('Error loading categories:', err);
       }
-      console.log(this.Items);
-      this.menuItems = data;
-      console.log(`Menu Items : ${JSON.stringify(this.menuItems)}`)
     });
+  }
+
+  toggleMenu() {
+    this.isExpanded = !this.isExpanded;
+    console.log(`Menu is now ${this.isExpanded ? 'expanded' : 'collapsed'}`);
+  }
+
+  getIconForMenu(menuName: string): string {
+    // Try to find icon from menu item first
+    const item = this.menuItems.find((m: any) => m.MENU_NAME === menuName);
+    if (item && item.icon) {
+      return item.icon;
+    }
+
+    // Fallback to icon map
+    const iconMap: { [key: string]: string } = {
+      'health & medical': 'local_hospital',
+      'education': 'school',
+      'beauty & wellness': 'spa',
+      'home services': 'home',
+      'technology & it': 'computer',
+      'legal & finance': 'gavel',
+      'countrylist': 'public',
+      'statelist': 'location_city',
+      'productcategory': 'category',
+      'sitemap': 'sitemap',
+      'about': 'info',
+      'contact': 'mail',
+      'geolocation': 'place',
+      'register': 'person_add'
+    };
+    return iconMap[menuName.toLowerCase()] || 'dashboard';
   }
 }

@@ -1,0 +1,36 @@
+<div class="categories-container">
+  <div class="categories-header">
+    <h1 class="categories-title">Browse Services</h1>
+    <p class="categories-subtitle">Explore our wide range of services and find what you need</p>
+  </div>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading categories...</p>
+  </div>
+
+  <div *ngIf="!loading && categories.length > 0" class="categories-grid">
+    <div *ngFor="let category of categories" 
+         class="category-card" 
+         [style.border-left-color]="category.color"
+         (click)="selectCategory(category)">
+      <div class="category-card-inner" [style.background-color]="category.bgColor">
+        <div class="category-icon-container" [style.background-color]="category.color">
+          <mat-icon class="category-icon">{{ category.icon }}</mat-icon>
+        </div>
+        <div class="category-content">
+          <h3 class="category-name">{{ category.name }}</h3>
+          <p class="category-description">{{ category.description }}</p>
+          <span class="category-subcounts">{{ category.subCategories.length }} services</span>
+        </div>
+        <div class="category-arrow">
+          <mat-icon>arrow_forward</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && categories.length === 0" class="no-categories">
+    <p>No categories available at the moment.</p>
+  </div>
+</div>

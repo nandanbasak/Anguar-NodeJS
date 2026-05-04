@@ -38,8 +38,19 @@
 <!-- <app-header [UserLiggedIn]="isLoginUser"
 ></app-header> -->
 <app-header></app-header>
-<div class="card-container">
 
-  <router-outlet></router-outlet>
+<div class="app-layout">
+  <app-menuitems></app-menuitems>
+  
+  <div class="main-content">
+    <div class="card-container">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <!-- Sitemap before footer -->
+    <app-sitemap></app-sitemap>
+    
+    <!-- Fixed Footer -->
+    <app-footer></app-footer>
+  </div>
 </div>
-<app-footer></app-footer>

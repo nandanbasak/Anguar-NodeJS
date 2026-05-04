@@ -1,0 +1,549 @@
+/* Home Container */
+.home-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2), transparent),
+              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: slideInUp 0.8s ease;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 15px 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  opacity: 0.95;
+  margin: 0 0 30px 0;
+  font-weight: 300;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-btn mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta-btn:hover mat-icon {
+  transform: translateX(5px);
+}
+
+/* Geolocation Section */
+.geolocation-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 1) 100%);
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.geolocation-content {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.6s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.geolocation-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.geo-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #667eea;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.geo-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.geo-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.geolocation-component {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Section Container */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+  margin: 0 0 50px 0;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 80px 20px;
+  background: #f8f9fa;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 4px solid;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon-container {
+  min-width: 80px;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon-container {
+  transform: scale(1.1) rotateZ(-5deg);
+}
+
+.stat-icon {
+  color: white;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 20px;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1), transparent);
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.feature-card:hover .feature-icon-container {
+  transform: scale(1.2) rotateZ(10deg);
+}
+
+.feature-card:hover .feature-title,
+.feature-card:hover .feature-description {
+  color: white;
+}
+
+.feature-icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-icon {
+  color: white;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.feature-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+  transition: color 0.3s ease;
+}
+
+.feature-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.categories-preview {
+  margin-top: 40px;
+}
+
+/* Sitemap Section */
+.sitemap-section {
+  padding: 0;
+}
+
+/* Scrollable Container */
+@supports (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .geolocation-content {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 400px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta-btn {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .geolocation-section,
+  .stats-section,
+  .features-section,
+  .services-section {
+    padding: 50px 20px;
+  }
+
+  .geolocation-content {
+    padding: 25px 15px;
+  }
+
+  .stats-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stat-card,
+  .feature-card {
+    padding: 20px;
+  }
+
+  .stat-icon-container {
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .stat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .feature-icon-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+  }
+
+  .geo-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 300px;
+  }
+
+  .hero-content {
+    padding: 0 15px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .geolocation-section,
+  .stats-section,
+  .features-section,
+  .services-section {
+    padding: 30px 15px;
+  }
+
+  .geolocation-content {
+    padding: 20px 10px;
+  }
+
+  .stat-card,
+  .feature-card {
+    padding: 15px;
+  }
+
+  .geo-title {
+    font-size: 1.2rem;
+  }
+
+  .geo-icon {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+  }
+}

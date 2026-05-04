@@ -1,0 +1,363 @@
+{
+  "subcategories": {
+    "1": [
+      {
+        "id": 101,
+        "categoryId": 1,
+        "name": "Doctors",
+        "icon": "local_hospital",
+        "description": "Professional doctors for consultation",
+        "color": "#E74C3C",
+        "image": "https://via.placeholder.com/400x300?text=Doctors",
+        "professionals": [
+          {
+            "id": "doc001",
+            "name": "Dr. John Smith",
+            "specialization": "General Practitioner",
+            "rating": 4.8,
+            "experience": "10 years",
+            "location": "New York",
+            "phone": "+1-202-555-0142",
+            "email": "john.smith@healthcare.com",
+            "image": "https://via.placeholder.com/150x150?text=Dr+John"
+          },
+          {
+            "id": "doc002",
+            "name": "Dr. Sarah Johnson",
+            "specialization": "Cardiologist",
+            "rating": 4.9,
+            "experience": "15 years",
+            "location": "Los Angeles",
+            "phone": "+1-202-555-0143",
+            "email": "sarah.johnson@healthcare.com",
+            "image": "https://via.placeholder.com/150x150?text=Dr+Sarah"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 102,
+        "categoryId": 1,
+        "name": "Medical Stores",
+        "icon": "pharmacy",
+        "description": "Medicines and medical supplies",
+        "color": "#E74C3C",
+        "image": "https://via.placeholder.com/400x300?text=Medical+Stores",
+        "professionals": [
+          {
+            "id": "med001",
+            "name": "HealthPlus Pharmacy",
+            "specialization": "Retail Pharmacy",
+            "rating": 4.6,
+            "experience": "5 years",
+            "location": "Manhattan",
+            "phone": "+1-202-555-0144",
+            "email": "info@healthplus.com",
+            "image": "https://via.placeholder.com/150x150?text=HealthPlus"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 103,
+        "categoryId": 1,
+        "name": "Hospitals",
+        "icon": "healing",
+        "description": "Hospital services and facilities",
+        "color": "#E74C3C",
+        "image": "https://via.placeholder.com/400x300?text=Hospitals",
+        "professionals": [
+          {
+            "id": "hosp001",
+            "name": "City General Hospital",
+            "specialization": "Multi-specialty Hospital",
+            "rating": 4.7,
+            "experience": "25 years",
+            "location": "Downtown",
+            "phone": "+1-202-555-0145",
+            "email": "admin@cityhospital.com",
+            "image": "https://via.placeholder.com/150x150?text=City+Hospital"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 104,
+        "categoryId": 1,
+        "name": "Diagnostic Centers",
+        "icon": "assignment",
+        "description": "Lab tests and diagnostics",
+        "color": "#E74C3C",
+        "image": "https://via.placeholder.com/400x300?text=Diagnostics",
+        "professionals": [
+          {
+            "id": "diag001",
+            "name": "Precision Diagnostics",
+            "specialization": "Advanced Testing Center",
+            "rating": 4.8,
+            "experience": "12 years",
+            "location": "Tech Park",
+            "phone": "+1-202-555-0146",
+            "email": "info@precisiondiag.com",
+            "image": "https://via.placeholder.com/150x150?text=Precision+Diag"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ],
+    "2": [
+      {
+        "id": 201,
+        "categoryId": 2,
+        "name": "Tutors",
+        "icon": "person",
+        "description": "Private tutoring services",
+        "color": "#27AE60",
+        "image": "https://via.placeholder.com/400x300?text=Tutors",
+        "professionals": [
+          {
+            "id": "tutor001",
+            "name": "James Wilson",
+            "specialization": "Mathematics Tutor",
+            "rating": 4.9,
+            "experience": "8 years",
+            "location": "Boston",
+            "phone": "+1-202-555-0147",
+            "email": "james@tutoring.com",
+            "image": "https://via.placeholder.com/150x150?text=James+Wilson"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 202,
+        "categoryId": 2,
+        "name": "Online Courses",
+        "icon": "computer",
+        "description": "Online learning platform and courses",
+        "color": "#27AE60",
+        "image": "https://via.placeholder.com/400x300?text=Online+Courses",
+        "professionals": [
+          {
+            "id": "course001",
+            "name": "TechLearn Academy",
+            "specialization": "Online Education Platform",
+            "rating": 4.7,
+            "experience": "7 years",
+            "location": "Virtual",
+            "phone": "+1-202-555-0148",
+            "email": "support@techlearn.com",
+            "image": "https://via.placeholder.com/150x150?text=TechLearn"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ],
+    "3": [
+      {
+        "id": 301,
+        "categoryId": 3,
+        "name": "Hair Salon",
+        "icon": "content_cut",
+        "description": "Professional hair cutting and styling",
+        "color": "#E83E8C",
+        "image": "https://via.placeholder.com/400x300?text=Hair+Salon",
+        "professionals": [
+          {
+            "id": "salon001",
+            "name": "Luxe Hair Studio",
+            "specialization": "Premium Hair Salon",
+            "rating": 4.8,
+            "experience": "6 years",
+            "location": "Fifth Avenue",
+            "phone": "+1-202-555-0149",
+            "email": "book@luxehair.com",
+            "image": "https://via.placeholder.com/150x150?text=Luxe+Hair"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 302,
+        "categoryId": 3,
+        "name": "Spa Services",
+        "icon": "spa",
+        "description": "Relaxation and wellness spa treatments",
+        "color": "#E83E8C",
+        "image": "https://via.placeholder.com/400x300?text=Spa+Services",
+        "professionals": [
+          {
+            "id": "spa001",
+            "name": "Serenity Wellness Spa",
+            "specialization": "Full-service Spa",
+            "rating": 4.9,
+            "experience": "10 years",
+            "location": "Uptown",
+            "phone": "+1-202-555-0150",
+            "email": "book@serenitysp a.com",
+            "image": "https://via.placeholder.com/150x150?text=Serenity+Spa"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ],
+    "4": [
+      {
+        "id": 401,
+        "categoryId": 4,
+        "name": "Plumbing",
+        "icon": "plumbing",
+        "description": "Plumbing repair and installation services",
+        "color": "#FD7E14",
+        "image": "https://via.placeholder.com/400x300?text=Plumbing",
+        "professionals": [
+          {
+            "id": "plumb001",
+            "name": "ProFix Plumbing",
+            "specialization": "Emergency Plumbing",
+            "rating": 4.7,
+            "experience": "12 years",
+            "location": "Citywide",
+            "phone": "+1-202-555-0151",
+            "email": "emergency@profixplumb.com",
+            "image": "https://via.placeholder.com/150x150?text=ProFix+Plumbing"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 402,
+        "categoryId": 4,
+        "name": "Electrical",
+        "icon": "electrical_services",
+        "description": "Electrical repair and installation",
+        "color": "#FD7E14",
+        "image": "https://via.placeholder.com/400x300?text=Electrical",
+        "professionals": [
+          {
+            "id": "elec001",
+            "name": "ElectroWorks Solutions",
+            "specialization": "Residential & Commercial Electrical",
+            "rating": 4.8,
+            "experience": "15 years",
+            "location": "Metro Area",
+            "phone": "+1-202-555-0152",
+            "email": "service@electroworks.com",
+            "image": "https://via.placeholder.com/150x150?text=ElectroWorks"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ],
+    "5": [
+      {
+        "id": 501,
+        "categoryId": 5,
+        "name": "Computer Repair",
+        "icon": "build",
+        "description": "Computer and laptop repair services",
+        "color": "#0D47A1",
+        "image": "https://via.placeholder.com/400x300?text=Computer+Repair",
+        "professionals": [
+          {
+            "id": "comp001",
+            "name": "TechRepair Pro",
+            "specialization": "Computer Repair & Maintenance",
+            "rating": 4.8,
+            "experience": "8 years",
+            "location": "Tech District",
+            "phone": "+1-202-555-0153",
+            "email": "support@techrepairpro.com",
+            "image": "https://via.placeholder.com/150x150?text=TechRepair+Pro"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 502,
+        "categoryId": 5,
+        "name": "Web Development",
+        "icon": "code",
+        "description": "Web design and development services",
+        "color": "#0D47A1",
+        "image": "https://via.placeholder.com/400x300?text=Web+Development",
+        "professionals": [
+          {
+            "id": "web001",
+            "name": "Digital Creations Agency",
+            "specialization": "Web Development & Design",
+            "rating": 4.9,
+            "experience": "10 years",
+            "location": "Virtual",
+            "phone": "+1-202-555-0154",
+            "email": "hello@digitalcreations.com",
+            "image": "https://via.placeholder.com/150x150?text=Digital+Creations"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ],
+    "6": [
+      {
+        "id": 601,
+        "categoryId": 6,
+        "name": "Legal Consultation",
+        "icon": "gavel",
+        "description": "Legal advice and consultation services",
+        "color": "#6F42C1",
+        "image": "https://via.placeholder.com/400x300?text=Legal+Consultation",
+        "professionals": [
+          {
+            "id": "legal001",
+            "name": "Justice Legal Services",
+            "specialization": "Corporate Law",
+            "rating": 4.9,
+            "experience": "20 years",
+            "location": "Law District",
+            "phone": "+1-202-555-0155",
+            "email": "info@justicelegal.com",
+            "image": "https://via.placeholder.com/150x150?text=Justice+Legal"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      },
+      {
+        "id": 602,
+        "categoryId": 6,
+        "name": "Financial Advisory",
+        "icon": "trending_up",
+        "description": "Financial planning and investment advice",
+        "color": "#6F42C1",
+        "image": "https://via.placeholder.com/400x300?text=Financial+Advisory",
+        "professionals": [
+          {
+            "id": "fin001",
+            "name": "Wealth Management Pro",
+            "specialization": "Investment & Tax Planning",
+            "rating": 4.8,
+            "experience": "18 years",
+            "location": "Finance Hub",
+            "phone": "+1-202-555-0156",
+            "email": "advisor@wealthmgmt.com",
+            "image": "https://via.placeholder.com/150x150?text=Wealth+Management"
+          }
+        ],
+        "createdAt": "2025-01-01",
+        "updatedAt": "2025-01-01"
+      }
+    ]
+  }
+}

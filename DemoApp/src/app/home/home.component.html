@@ -1,69 +1,99 @@
-<div class="container">
-  <div class="jumbotron">
-    <div class="row pb-5">
-      <div class="col-sm-3">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <span class="card-title">Total Teachers
-              <span class="badge rounded-pill bg-danger border border-light">{{ totalTeachers }} </span>
-            </span>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Some example text. Some example text.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to Our Platform</h1>
+      <p class="hero-subtitle">Discover amazing services and connect with professionals</p>
+      <button class="hero-cta-btn" (click)="navigateToCategories()">
+        <span>Explore Services</span>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- Geolocation Section -->
+  <section class="geolocation-section">
+    <div class="section-container">
+      <div class="geolocation-content">
+        <div class="geolocation-header">
+          <mat-icon class="geo-icon">location_on</mat-icon>
+          <h2 class="geo-title">Select Your Location</h2>
+          <p class="geo-subtitle">All services are tailored to your selected location</p>
+        </div>
+        <div class="geolocation-component">
+          <app-geolocation></app-geolocation>
         </div>
       </div>
-      <div class="col-sm-3">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <span class="card-title position-relative">Total Students
-              <span class="badge rounded-pill bg-danger border border-light">{{ totalStudents }} </span>
-            </span>
-            
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="section-container">
+      <h2 class="section-title">Our Impact</h2>
+      <div class="stats-grid">
+        <div *ngFor="let stat of stats" class="stat-card" [style.background-color]="'rgba(' + hexToRgb(stat.color) + ', 0.1)'">
+          <div class="stat-icon-container" [style.background-color]="stat.color">
+            <mat-icon class="stat-icon">{{ stat.icon }}</mat-icon>
           </div>
-          <div class="card-body">
-            <p class="card-text">Some example text. Some example text.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <span class="card-title">Total Classes              
-              <span class="badge rounded-pill bg-danger border border-light">{{ totalClasses }} </span>
-            </span>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Some example text. Some example text.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <span class="card-title">Other Info
-              <span class="badge rounded-pill bg-danger border border-light">{{ OtherInfo }} </span>
-            </span>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Some example text. Some example text.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+          <div class="stat-content">
+            <div class="stat-value">{{ stat.value }}<span *ngIf="stat.unit">{{ stat.unit }}</span></div>
+            <div class="stat-label">{{ stat.label }}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row pb-5">
-    <app-geolocation></app-geolocation>
-  </div>
-  </div>
-  <div class="row">
-  <app-productcategory></app-productcategory>
-</div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-container">
+            <mat-icon class="feature-icon">verified_user</mat-icon>
+          </div>
+          <h3 class="feature-title">Verified Professionals</h3>
+          <p class="feature-description">All professionals are verified and trusted by our community</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-container">
+            <mat-icon class="feature-icon">security</mat-icon>
+          </div>
+          <h3 class="feature-title">Secure Transactions</h3>
+          <p class="feature-description">Your data is protected with industry-leading security measures</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-container">
+            <mat-icon class="feature-icon">support_agent</mat-icon>
+          </div>
+          <h3 class="feature-title">24/7 Support</h3>
+          <p class="feature-description">Our dedicated team is always ready to help you</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-container">
+            <mat-icon class="feature-icon">trending_up</mat-icon>
+          </div>
+          <h3 class="feature-title">Growing Community</h3>
+          <p class="feature-description">Join thousands of satisfied users worldwide</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="section-container">
+      <h2 class="section-title">Browse Categories</h2>
+      <div class="categories-preview">
+        <app-categories-list></app-categories-list>
+      </div>
+    </div>
+  </section>
+
 </div>

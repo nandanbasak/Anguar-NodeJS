@@ -1,29 +1,67 @@
-<hr class="p-0 m-0 b-0">
-<div class="d-flex align-items-center justify-content-between">
-  <div class="">     
-    <img class="img-thumbnail" src="assets/demo.png" alt="...">
-    <span class="">DemoApp</span>
-  </div>
-  <div class="">
-    <div class="text-muted mb-0 py-2">&copy; 2022 DemoApp All rights reserved</div>
-  </div>
-  <div class="">
-    <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
-      <i class="fa-brands fa-facebook"></i>
-    </a>
-    <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
-      <i class="fa-brands fa-google"></i>
-    </a>
-    <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button">
-      <i class="fa-brands fa-x-twitter"></i>
-    </a>
-  </div>
-</div>
+<footer class="app-footer">
+  <div class="footer-content">
+    <!-- Top Section -->
+    <div class="footer-top">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="assets/demo.png" alt="DemoApp Logo" class="logo-img">
+          <span class="logo-text">DemoApp</span>
+        </div>
+        <p class="footer-description">
+          Your trusted platform for connecting with verified professionals and services in your area.
+        </p>
+      </div>
 
-<hr class="p-0 m-0 b-0">
+      <div class="footer-section">
+        <h4 class="footer-section-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/categories">Categories</a></li>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-section-title">Support</h4>
+        <ul class="footer-links">
+          <li><a href="#help">Help Center</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-section-title">Contact Info</h4>
+        <div class="contact-info">
+          <p><mat-icon>location_on</mat-icon> <span>City Center, Your City</span></p>
+          <p><mat-icon>phone</mat-icon> <span>+91-9876543210</span></p>
+          <p><mat-icon>email</mat-icon> <span>support@demoapp.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Bottom Section -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; {{ currentYear }} DemoApp. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" class="social-link" title="Facebook" target="_blank">
+          <mat-icon>facebook</mat-icon>
+        </a>
+        <a href="https://linkedin.com" class="social-link" title="LinkedIn" target="_blank">
+          <mat-icon>language</mat-icon>
+        </a>
+        <a href="https://instagram.com" class="social-link" title="Instagram" target="_blank">
+          <mat-icon>photo_camera</mat-icon>
+        </a>
+        <a href="https://twitter.com" class="social-link" title="Twitter" target="_blank">
+          <mat-icon>public</mat-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

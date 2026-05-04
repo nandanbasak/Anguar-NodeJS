@@ -1,12 +1,45 @@
-<div class="nav" role="banner">  
-      <!-- <div class="nav-item" *ngFor="let mt of menuItems">        
-        <a class="nav-link" [routerLink]="mt.MENU_NAME">{{mt.MENU_NAME}} </a>        
-      </div> -->
-     <ul class="nav">
-        <li class="nav-item" *ngFor="let mt of menuItems">
-          <a class="nav-link text-light" [routerLink]="mt.MENU_NAME">{{mt.MENU_NAME}} </a>      
-        </li>
-        
-     </ul>
+
+<div class="nav menu-sidebar" role="navigation" [class.expanded]="isExpanded">
+  <div class="menu-header">
+    <button class="menu-toggle-btn" (click)="toggleMenu()" [attr.aria-label]="isExpanded ? 'Collapse menu' : 'Expand menu'">
+      <mat-icon class="toggle-icon" *ngIf="isExpanded">chevron_left</mat-icon>
+      <mat-icon class="toggle-icon" *ngIf="!isExpanded">chevron_right</mat-icon>
+      <span class="menu-label" *ngIf="isExpanded">Menu</span>
+    </button>
   </div>
-  
+  <ul class="nav menu-list">
+    <!-- Home Link -->
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon class="item-icon">home</mat-icon>
+        <span class="item-label">Home</span>
+      </a>
+    </li> -->
+
+    <!-- Categories Links -->
+    <li class="nav-item" *ngFor="let category of menuItems; let i = index">
+      <a class="nav-link" [routerLink]="['/category', category.MENU_CODE]" routerLinkActive="active">
+        <mat-icon class="item-icon">{{ getIconForMenu(category.MENU_NAME) }}</mat-icon>
+        <span class="item-label">{{ category.MENU_NAME }}</span>
+      </a>
+    </li>
+
+    <!-- Spacer -->
+    <li class="nav-spacer"></li>
+
+    <!-- Footer Links -->
+    <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/about" routerLinkActive="active">
+        <mat-icon class="item-icon">info</mat-icon>
+        <span class="item-label">About</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+        <mat-icon class="item-icon">mail</mat-icon>
+        <span class="item-label">Contact</span>
+      </a>
+    </li> -->
+  </ul>
+</div>

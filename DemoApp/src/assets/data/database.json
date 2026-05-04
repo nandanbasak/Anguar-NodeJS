@@ -1,0 +1,294 @@
+{
+  "health": {
+    "doctors": [
+      {
+        "id": 1,
+        "name": "Dr. Rajesh Kumar",
+        "specialization": "General Practitioner",
+        "experience": "15 years",
+        "location": "Downtown Medical Center",
+        "phone": "+91-9876543210",
+        "email": "rajesh@clinic.com",
+        "rating": 4.8,
+        "verified": true,
+        "availability": "Mon-Fri 9AM-5PM"
+      },
+      {
+        "id": 2,
+        "name": "Dr. Priya Sharma",
+        "specialization": "Cardiologist",
+        "experience": "12 years",
+        "location": "Heart Care Hospital",
+        "phone": "+91-8765432109",
+        "email": "priya@heart.com",
+        "rating": 4.9,
+        "verified": true,
+        "availability": "Tue-Thu 10AM-4PM"
+      }
+    ],
+    "medical_stores": [
+      {
+        "id": 101,
+        "name": "Apollo Pharmacy",
+        "location": "City Center",
+        "owner": "Mr. Vikram Singh",
+        "phone": "+91-9123456789",
+        "email": "apollo@pharmacy.com",
+        "established": "2010",
+        "services": "Medicines, Vitamin supplements, Medical devices",
+        "rating": 4.7,
+        "verified": true
+      },
+      {
+        "id": 102,
+        "name": "MediCare Plus",
+        "location": "Hospital Road",
+        "owner": "Ms. Anjali Patel",
+        "phone": "+91-8234567890",
+        "email": "medicare@pharmacy.com",
+        "established": "2015",
+        "services": "Medicines, Online delivery, Consultations",
+        "rating": 4.6,
+        "verified": true
+      }
+    ],
+    "hospitals": [
+      {
+        "id": 201,
+        "name": "City General Hospital",
+        "type": "Multi-specialty",
+        "beds": 500,
+        "location": "Medical Complex",
+        "phone": "+91-9000000001",
+        "email": "info@cityhospital.com",
+        "established": "1995",
+        "departments": "Cardiology, Neurology, Orthopedics, ICU",
+        "rating": 4.8,
+        "verified": true,
+        "emergency": true
+      }
+    ],
+    "clinics": [
+      {
+        "id": 301,
+        "name": "Quick Care Clinic",
+        "type": "Diagnostic Center",
+        "location": "Market Square",
+        "owner": "Dr. Arjun Verma",
+        "phone": "+91-9111111111",
+        "email": "quickcare@clinic.com",
+        "services": "Lab tests, Ultrasound, X-ray",
+        "rating": 4.5,
+        "verified": true
+      }
+    ]
+  },
+  "education": {
+    "private_teachers": [
+      {
+        "id": 1,
+        "name": "Ms. Sneha Gupta",
+        "subject": "Mathematics",
+        "qualifications": "B.Tech",
+        "experience": "8 years",
+        "location": "Downtown",
+        "phone": "+91-9200000001",
+        "email": "sneha@tutor.com",
+        "rate": 500,
+        "rating": 4.9,
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Mr. Rohit Yadav",
+        "subject": "English",
+        "qualifications": "M.A. English",
+        "experience": "10 years",
+        "location": "City Center",
+        "phone": "+91-9300000001",
+        "email": "rohit@tutor.com",
+        "rate": 600,
+        "rating": 4.8,
+        "verified": true
+      }
+    ],
+    "schools": [
+      {
+        "id": 101,
+        "name": "St. Mary's School",
+        "type": "Co-ed",
+        "classes": "Nursery to 12th",
+        "location": "Residential Area",
+        "phone": "+91-9400000001",
+        "email": "admission@stmarys.com",
+        "established": "1985",
+        "affiliation": "ICSE",
+        "facilities": "Library, Lab, Sports complex, Cafeteria",
+        "rating": 4.8,
+        "verified": true
+      }
+    ],
+    "colleges": [
+      {
+        "id": 201,
+        "name": "University of Technology",
+        "type": "Government",
+        "location": "University Campus",
+        "phone": "+91-9500000001",
+        "email": "admission@untech.edu",
+        "established": "1998",
+        "courses": "B.Tech, M.Tech, B.Sc, M.Sc",
+        "approved_by": "AICTE",
+        "rating": 4.7,
+        "verified": true
+      }
+    ]
+  },
+  "home": {
+    "buy_property": [
+      {
+        "id": 1,
+        "title": "Luxury Apartment",
+        "type": "Apartment",
+        "bhk": "3 BHK",
+        "price": 5000000,
+        "location": "Downtown",
+        "area": "1500 sqft",
+        "owner": "Mr. Patel",
+        "phone": "+91-9600000001",
+        "email": "patel@property.com",
+        "listing_date": "2024-01-15",
+        "rating": 4.8,
+        "verified": true,
+        "amenities": "Gym, Pool, Security"
+      }
+    ],
+    "rent_property": [
+      {
+        "id": 101,
+        "title": "Cozy 2BHK Flat",
+        "type": "Apartment",
+        "bhk": "2 BHK",
+        "rent": 25000,
+        "location": "Suburbs",
+        "area": "1000 sqft",
+        "owner": "Ms. Sharma",
+        "phone": "+91-9700000001",
+        "email": "sharma@rent.com",
+        "listed_on": "2024-02-01",
+        "rating": 4.6,
+        "verified": true
+      }
+    ],
+    "interior_design": [
+      {
+        "id": 201,
+        "name": "Creative Designs Studio",
+        "owner": "Arch. Vikram Kumar",
+        "phone": "+91-9800000001",
+        "email": "creative@design.com",
+        "projects_completed": 150,
+        "specialization": "Modern, Minimalist, Traditional",
+        "rating": 4.9,
+        "verified": true
+      }
+    ]
+  },
+  "automobiles": {
+    "buy_cars": [
+      {
+        "id": 1,
+        "brand": "Toyota",
+        "model": "Fortuner",
+        "year": 2023,
+        "price": 3000000,
+        "kilometers": 0,
+        "fuel_type": "Diesel",
+        "dealer": "Toyota Motors",
+        "phone": "+91-9900000001",
+        "email": "toyota@dealer.com",
+        "location": "Auto Market",
+        "rating": 4.8,
+        "verified": true
+      }
+    ],
+    "rent_cars": [
+      {
+        "id": 101,
+        "company": "SureRent Cars",
+        "vehicle_type": "Sedan",
+        "rate_per_day": 2000,
+        "phone": "+91-9910000001",
+        "email": "surerent@cars.com",
+        "location": "Airport Road",
+        "fleet_size": 50,
+        "rating": 4.7,
+        "verified": true
+      }
+    ]
+  },
+  "beauty": {
+    "salons": [
+      {
+        "id": 1,
+        "name": "Glam Beauty Salon",
+        "owner": "Ms. Priya Kumari",
+        "phone": "+91-9920000001",
+        "email": "glam@salon.com",
+        "location": "Central Plaza",
+        "established": "2008",
+        "services": "Hair cut, Color, Facial, Massage",
+        "specialization": "Bridal makeup",
+        "rating": 4.9,
+        "verified": true
+      }
+    ],
+    "gyms": [
+      {
+        "id": 101,
+        "name": "FitLife Gym",
+        "owner": "Mr. Arjun Singh",
+        "phone": "+91-9930000001",
+        "email": "fitlife@gym.com",
+        "location": "Downtown",
+        "established": "2015",
+        "membership_fee": 5000,
+        "amenities": "Yoga, CrossFit, Swimming, Sauna",
+        "classes_offered": "Zumba, Spinning, Boxing",
+        "rating": 4.8,
+        "verified": true
+      }
+    ]
+  },
+  "services": {
+    "plumbing": [
+      {
+        "id": 1,
+        "name": "Mr. Suresh Kumar",
+        "experience": "20 years",
+        "phone": "+91-9940000001",
+        "email": "suresh@plumbing.com",
+        "location": "City Center",
+        "services": "Installation, Repair, Maintenance",
+        "rating": 4.9,
+        "verified": true,
+        "emergency_available": true
+      }
+    ],
+    "electrical": [
+      {
+        "id": 101,
+        "name": "ElectroTech Services",
+        "owner": "Mr. Ramesh Patel",
+        "phone": "+91-9950000001",
+        "email": "electro@services.com",
+        "location": "Industrial Area",
+        "experience": "15 years",
+        "services": "Wiring, Panel installation, Repair",
+        "rating": 4.7,
+        "verified": true,
+        "emergency_available": true
+      }
+    ]
+  }
+}

@@ -25,13 +25,13 @@ export class CommonService {
   }
 }
 
-export class MenuItems{  
-    menu_code:number;
-    menu_name:string;
-    created_on:Date;
-    created_by:string;
-    updated_on:Date;
-    owner_code:number;
-    status:string;
-    description:string;
+export class MenuItems{
+    menu_code!: number;
+    menu_name!: string;
+    created_on!: Date;
+    created_by!: string;
+    updated_on!: Date;
+    owner_code!: number;
+    status!: string;
+    description!: string;
 }

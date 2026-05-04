@@ -1,119 +1,179 @@
-<div class="container register">
-    <div class="row">
-        <div class="col-md-3 register-left">
-            <h3>Welcome</h3>
-            <p>You are just few steps away from register yourself!</p>
-            <input type="submit" name="" routerLink="/login" value="Login"/><br/>
-        </div>
-        <div class="col-md-9 register-right">
-            <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
-                </li>
-            </ul> -->
-            <div class="tab-content" id="myTabContent" [formGroup]="regiterForm">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Register</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name *" formControlName="first_name" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name *" formControlName="last_name" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" formControlName ="password" value="" />
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                <input type="password" class="form-control"  placeholder="Confirm Password *" formControlName ="re_password" value="" />
-                                <i class="fa-solid fa-circle-xmark input-group-text" *ngIf="regiterForm.errors?.['passwordMismatch'] && regiterForm.get('re_password')?.touched" style="color: #ff0000;"></i>
-                                <i class="fa-solid fa-circle-check input-group-text" *ngIf="regiterForm.errors?.['passwordMatch'] && regiterForm.get('re_password').value" style="color: #028804;"></i>
-                            </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="maxl">
-                                    <label class="radio inline"> 
-                                        <input type="radio" name="gender" formControlName="gender" value="male" checked>
-                                        <span> Male </span> 
-                                    </label>
-                                    <label class="radio inline"> 
-                                        <input type="radio" name="gender" formControlName="gender" value="female">
-                                        <span>Female </span> 
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <input type="date" id="datepicker" class="form-control" placeholder="Enter Your DOB *" formControlName="dateofbirth" value="" />
-                                </div>
-                                <input type="email" class="form-control" placeholder="Your Email *" formControlName="email" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="mobileno" formControlName="mobileno" class="form-control" placeholder="Your Phone *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <select formControlName="role" (change)="changeRole($event)" class="form-select form-select-sm" aria-label=".form-select-lg example">
-                                    <option class="hidden"  selected disabled>PLEASE SELECT ROLE</option>
-                                    <option>ADMIN</option>
-                                    <option>USER</option>
-                                    <option>CUSTOMER</option>
-                                </select>
-                            </div>
-                           
-                            <input type="submit" class="btnRegister" (click)="onRegister()" value="Register"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3  class="register-heading">Apply as a Hirer</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                            </div>
-
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                    <option>What is your Birthdate?</option>
-                                    <option>What is Your old Phone Number</option>
-                                    <option>What is your Pet Name?</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                            </div>
-                            <input type="submit" class="btnRegister"  value="Register"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>Create Account</h2>
+      <p>Join our community and start connecting with services</p>
     </div>
 
+    <form [formGroup]="regiterForm">
+      <!-- Two Column Layout -->
+      <div class="form-row">
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input 
+            type="text"
+            id="first_name"
+            formControlName="first_name" 
+            placeholder="Enter your first name"
+            required>
+          <div class="error-message" *ngIf="regiterForm.get('first_name')?.invalid && regiterForm.get('first_name')?.touched">
+            <span *ngIf="regiterForm.get('first_name')?.errors?.['required']">First name is required</span>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input 
+            type="text"
+            id="last_name"
+            formControlName="last_name" 
+            placeholder="Enter your last name"
+            required>
+          <div class="error-message" *ngIf="regiterForm.get('last_name')?.invalid && regiterForm.get('last_name')?.touched">
+            <span *ngIf="regiterForm.get('last_name')?.errors?.['required']">Last name is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email"
+          id="email"
+          formControlName="email" 
+          placeholder="Enter your email address"
+          required>
+        <div class="error-message" *ngIf="regiterForm.get('email')?.invalid && regiterForm.get('email')?.touched">
+          <span *ngIf="regiterForm.get('email')?.errors?.['required']">Email is required</span>
+          <span *ngIf="regiterForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="mobileno">Phone Number</label>
+        <input 
+          type="text"
+          id="mobileno"
+          formControlName="mobileno"
+          placeholder="10-digit phone number"
+          minlength="10"
+          maxlength="10"
+          required>
+        <div class="error-message" *ngIf="regiterForm.get('mobileno')?.invalid && regiterForm.get('mobileno')?.touched">
+          <span *ngIf="regiterForm.get('mobileno')?.errors?.['required']">Phone number is required</span>
+          <span *ngIf="regiterForm.get('mobileno')?.errors?.['minlength']">Phone number must be 10 digits</span>
+        </div>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dateofbirth">Date of Birth</label>
+        <input 
+          type="date"
+          id="dateofbirth"
+          formControlName="dateofbirth"
+          required>
+        <div class="error-message" *ngIf="regiterForm.get('dateofbirth')?.invalid && regiterForm.get('dateofbirth')?.touched">
+          <span *ngIf="regiterForm.get('dateofbirth')?.errors?.['required']">Date of birth is required</span>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender</label>
+        <div style="display: flex; gap: 30px; margin-top: 8px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; margin: 0;">
+            <input 
+              type="radio" 
+              formControlName="gender" 
+              value="male">
+            <span>Male</span>
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; margin: 0;">
+            <input 
+              type="radio" 
+              formControlName="gender" 
+              value="female">
+            <span>Female</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Role Selection -->
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select 
+          id="role"
+          formControlName="role"
+          (change)="changeRole($event)"
+          required>
+          <option disabled selected>Select your role</option>
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+          <option value="CUSTOMER">Customer</option>
+        </select>
+        <div class="error-message" *ngIf="regiterForm.get('role')?.invalid && regiterForm.get('role')?.touched">
+          <span *ngIf="regiterForm.get('role')?.errors?.['required']">Please select a role</span>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password"
+          id="password"
+          formControlName="password" 
+          placeholder="Create a strong password"
+          required>
+        <div class="password-strength" [ngClass]="getPasswordStrength()">
+          <div class="password-strength-bar"></div>
+        </div>
+        <div class="error-message" *ngIf="regiterForm.get('password')?.invalid && regiterForm.get('password')?.touched">
+          <span *ngIf="regiterForm.get('password')?.errors?.['required']">Password is required</span>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="re_password">Confirm Password</label>
+        <input 
+          type="password"
+          id="re_password"
+          formControlName="re_password" 
+          placeholder="Re-enter your password"
+          required>
+        <div class="error-message" *ngIf="regiterForm.errors?.['passwordMismatch'] && regiterForm.get('re_password')?.touched">
+          Passwords do not match
+        </div>
+        <div class="success-message" *ngIf="regiterForm.errors?.['passwordMatch'] && regiterForm.get('re_password')?.value">
+          Passwords match
+        </div>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <label class="terms-checkbox">
+        <input type="checkbox" required>
+        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+      </label>
+
+      <!-- Register Button -->
+      <button 
+        type="submit"
+        [disabled]="!regiterForm.valid"
+        (click)="onRegister()"
+        class="register-button">
+        Create Account
+      </button>
+
+      <!-- Login Link -->
+      <div class="login-link">
+        Already have an account? <a routerLink="/login">Sign in here</a>
+      </div>
+    </form>
+  </div>
 </div>

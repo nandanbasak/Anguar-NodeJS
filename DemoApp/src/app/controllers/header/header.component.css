@@ -4,19 +4,24 @@ mat-toolbar {
   min-height: 64px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  backdrop-filter: blur(10px);
 }
 
 .gradient-bg {
-  background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%) !important;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
 }
 
 .app-title {
   color: #fff;
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  font-weight: 700;
   margin-left: 16px;
   letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .spacer {
@@ -28,11 +33,31 @@ a[mat-button],
 a[mat-icon-button] {
   color: rgba(255, 255, 255, 0.87) !important;
   margin: 0 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+a[mat-button]::after,
+a[mat-icon-button]::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+a[mat-button]:hover::after,
+a[mat-icon-button]:hover::after {
+  width: 100%;
 }
 
 a[mat-button]:hover,
 a[mat-icon-button]:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px);
 }
 
 /* User Menu Button */
@@ -42,10 +67,43 @@ a[mat-icon-button]:hover {
   align-items: center;
   gap: 8px;
   margin-left: 16px;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.user-menu-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.user-menu-btn:hover::before {
+  left: 0;
+}
+
+.user-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .user-menu-btn mat-icon {
   margin: 0 !important;
+  transition: transform 0.3s ease;
+}
+
+.user-menu-btn:hover mat-icon {
+  transform: rotateZ(180deg);
 }
 
 /* Avatar Styles */
@@ -53,94 +111,253 @@ a[mat-icon-button]:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
   color: #fff;
   font-weight: 700;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   font-size: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu-btn:hover .avatar-circle {
+  transform: scale(1.1);
+  border-color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-circle-lg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #e3f2fd;
-  color: #1976d2;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
   font-weight: 700;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 1.25rem;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .user-name {
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* User Popup Content */
 .user-popup-content {
-  padding: 16px;
-  min-width: 280px;
+  padding: 20px;
+  min-width: 320px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .user-popup-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e0e0e0;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 .user-popup-name {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #212121;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
 }
 
 .user-popup-email {
-  font-size: 0.875rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #667eea;
+  margin-top: 4px;
 }
 
+/* User Popup Details */
 .user-popup-details {
-  margin-bottom: 16px;
-  font-size: 0.875rem;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
   color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .user-popup-details div {
-  margin-bottom: 8px;
   display: flex;
   align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.user-popup-details div:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.15);
 }
 
 .user-popup-details div:last-child {
   margin-bottom: 0;
 }
 
-/* Logout Button */
-button[mat-flat-button][color="warn"] {
-  width: 100%;
+/* Detail Icons in Popup */
+.detail-icon {
+  font-size: 1.3rem;
+  width: 28px !important;
+  height: 28px !important;
+  color: #667eea;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
+.user-popup-details div:hover .detail-icon {
+  transform: scale(1.15);
+}
+
+/* Logout Button */
 .logout-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+  color: white !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px !important;
+  border-radius: 8px;
+  margin-top: 16px;
 }
 
-/* Detail Icons in Popup */
-.detail-icon {
-  font-size: 1.2rem;
-  width: 24px !important;
-  height: 24px !important;
-  margin-right: 8px;
-  color: #1976d2;
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.3);
+}
+
+.logout-btn mat-icon {
+  transition: transform 0.3s ease;
+}
+
+.logout-btn:hover mat-icon {
+  transform: scale(1.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  mat-toolbar {
+    padding: 0 16px;
+  }
+
+  .app-title {
+    font-size: 1.1rem;
+  }
+
+  a[mat-button] {
+    font-size: 0.85rem;
+    margin: 0 4px;
+  }
+
+  .user-menu-btn {
+    padding: 6px 12px !important;
+  }
+
+  .avatar-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .avatar-circle-lg {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .user-popup-content {
+    min-width: 280px;
+    padding: 16px;
+  }
+
+  .user-popup-header {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-toolbar {
+    padding: 0 12px;
+    min-height: 56px;
+  }
+
+  .app-title {
+    font-size: 0.95rem;
+    margin-left: 8px;
+  }
+
+  a[mat-button] {
+    display: none;
+  }
+
+  a[mat-icon-button] {
+    margin: 0 4px;
+  }
+
+  .user-menu-btn {
+    padding: 4px 8px !important;
+  }
+
+  .avatar-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .user-popup-content {
+    min-width: 240px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  mat-toolbar {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .user-popup-content {
+    background: linear-gradient(135deg, #2d3436 0%, #636363 100%);
+  }
+
+  .user-popup-details div {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+  }
+
+  .user-popup-name {
+    color: #fff;
+  }
+
+  .user-popup-email {
+    color: #b0a9ff;
+  }
 }

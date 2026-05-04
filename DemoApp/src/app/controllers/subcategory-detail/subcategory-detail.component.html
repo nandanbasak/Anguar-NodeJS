@@ -1,0 +1,123 @@
+<div class="subcategory-detail-container">
+  <button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Services
+  </button>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading service details...</p>
+  </div>
+
+  <div *ngIf="!loading && subCategory" class="subcategory-content">
+    <div class="subcategory-header">
+      <div class="header-info">
+        <mat-icon class="header-icon">{{ subCategory.icon }}</mat-icon>
+        <div>
+          <h1 class="subcategory-title">{{ subCategory.name }}</h1>
+          <p class="subcategory-description">{{ subCategory.description }}</p>
+        </div>
+      </div>
+      <button class="add-button" (click)="openForm()">
+        <mat-icon>add</mat-icon>
+        Add Item
+      </button>
+    </div>
+
+    <!-- Form Section -->
+    <div *ngIf="showForm" class="form-overlay" (click)="closeForm()">
+      <div class="form-container" (click)="$event.stopPropagation()">
+        <div class="form-header">
+          <h2>{{ editingItem ? 'Edit Item' : 'Add New Item' }}</h2>
+          <button class="close-btn" (click)="closeForm()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <form class="item-form">
+          <mat-form-field class="full-width">
+            <mat-label>Name *</mat-label>
+            <input matInput [(ngModel)]="formData.name" name="name" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Description *</mat-label>
+            <textarea matInput [(ngModel)]="formData.description" name="description" rows="4" required></textarea>
+          </mat-form-field>
+
+          <div class="form-row">
+            <mat-form-field>
+              <mat-label>Price</mat-label>
+              <input matInput type="number" [(ngModel)]="formData.price" name="price">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Phone</mat-label>
+              <input matInput [(ngModel)]="formData.phone" name="phone">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field class="full-width">
+            <mat-label>Location</mat-label>
+            <input matInput [(ngModel)]="formData.location" name="location">
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button type="button" class="cancel-btn" (click)="closeForm()">Cancel</button>
+            <button type="button" class="save-btn" (click)="saveItem()">{{ editingItem ? 'Update' : 'Add' }} Item</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Items List Section -->
+    <div class="items-section">
+      <div *ngIf="items.length === 0" class="no-items">
+        <mat-icon>inbox</mat-icon>
+        <p>No items added yet. Click "Add Item" to get started.</p>
+      </div>
+
+      <div *ngIf="items.length > 0" class="items-grid">
+        <div *ngFor="let item of items" class="item-card">
+          <div class="item-header">
+            <h3>{{ item.name }}</h3>
+            <div class="item-actions">
+              <button class="edit-btn" (click)="editItem(item)" title="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button class="delete-btn" (click)="deleteItem(item.id)" title="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <p class="item-description">{{ item.description }}</p>
+
+          <div class="item-details">
+            <div *ngIf="item.price" class="detail">
+              <span class="label">Price:</span>
+              <span class="value">₹{{ item.price }}</span>
+            </div>
+            <div *ngIf="item.phone" class="detail">
+              <span class="label">Phone:</span>
+              <span class="value">{{ item.phone }}</span>
+            </div>
+            <div *ngIf="item.location" class="detail">
+              <span class="label">Location:</span>
+              <span class="value">{{ item.location }}</span>
+            </div>
+          </div>
+
+          <div *ngIf="item.verified" class="verified-badge">
+            <mat-icon>verified</mat-icon>
+            <span>Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !subCategory" class="not-found">
+    <p>Service not found.</p>
+  </div>
+</div>

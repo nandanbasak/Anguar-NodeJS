@@ -52,6 +52,27 @@ export class RegisterComponent implements OnInit {
   changeRole(e) {
     this.regiterForm.controls['role'].setValue(e.target.value);
     console.log(`Register Form changeRole: ${this.regiterForm.controls['role'].value}`);
+  }
 
+  getPasswordStrength(): string {
+    const password = this.regiterForm.get('password')?.value;
+    if (!password) return '';
+    
+    let strength = 0;
+    // Check length
+    if (password.length >= 8) strength++;
+    if (password.length >= 12) strength++;
+    // Check for lowercase letters
+    if (/[a-z]/.test(password)) strength++;
+    // Check for uppercase letters
+    if (/[A-Z]/.test(password)) strength++;
+    // Check for numbers
+    if (/[0-9]/.test(password)) strength++;
+    // Check for special characters
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) strength++;
+
+    if (strength <= 2) return 'weak';
+    if (strength <= 4) return 'medium';
+    return 'strong';
   }
 }

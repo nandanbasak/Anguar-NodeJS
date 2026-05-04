@@ -1,0 +1,322 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Health & Medical",
+      "icon": "health_and_safety",
+      "description": "Find healthcare professionals and medical services",
+      "color": "#FF6B6B",
+      "bgColor": "#FFE5E5",
+      "subCategories": [
+        {
+          "id": 101,
+          "name": "Doctors",
+          "icon": "local_hospital",
+          "description": "Professional doctors for consultation",
+          "color": "#E74C3C"
+        },
+        {
+          "id": 102,
+          "name": "Medical Stores",
+          "icon": "pharmacy",
+          "description": "Medicines and medical supplies",
+          "color": "#E74C3C"
+        },
+        {
+          "id": 103,
+          "name": "Hospitals",
+          "icon": "healing",
+          "description": "Hospital services and facilities",
+          "color": "#E74C3C"
+        },
+        {
+          "id": 104,
+          "name": "Diagnostic Centers",
+          "icon": "assignment",
+          "description": "Lab tests and diagnostics",
+          "color": "#E74C3C"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Education",
+      "icon": "school",
+      "description": "Educational services and learning opportunities",
+      "color": "#4ECDC4",
+      "bgColor": "#E0F7F6",
+      "subCategories": [
+        {
+          "id": 201,
+          "name": "Schools",
+          "icon": "domain",
+          "description": "Primary and secondary schools",
+          "color": "#16A085"
+        },
+        {
+          "id": 202,
+          "name": "Colleges",
+          "icon": "library_books",
+          "description": "Higher education institutions",
+          "color": "#16A085"
+        },
+        {
+          "id": 203,
+          "name": "Private Teachers",
+          "icon": "person",
+          "description": "One-on-one tutoring services",
+          "color": "#16A085"
+        },
+        {
+          "id": 204,
+          "name": "Coaching Centers",
+          "icon": "assignment_ind",
+          "description": "Competitive exam coaching",
+          "color": "#16A085"
+        },
+        {
+          "id": 205,
+          "name": "Online Courses",
+          "icon": "computer",
+          "description": "Digital learning platforms",
+          "color": "#16A085"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Real Estate",
+      "icon": "home",
+      "description": "Properties, rentals, and real estate services",
+      "color": "#95E1D3",
+      "bgColor": "#E8F8F5",
+      "subCategories": [
+        {
+          "id": 301,
+          "name": "Buy Properties",
+          "icon": "apartment",
+          "description": "Properties for sale",
+          "color": "#27AE60"
+        },
+        {
+          "id": 302,
+          "name": "Rent Properties",
+          "icon": "house",
+          "description": "Properties for rent",
+          "color": "#27AE60"
+        },
+        {
+          "id": 303,
+          "name": "Commercial Spaces",
+          "icon": "business",
+          "description": "Office and commercial spaces",
+          "color": "#27AE60"
+        },
+        {
+          "id": 304,
+          "name": "Real Estate Agents",
+          "icon": "account_balance",
+          "description": "Professional real estate agents",
+          "color": "#27AE60"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Professional Services",
+      "icon": "work",
+      "description": "Consulting, legal, and professional services",
+      "color": "#FFD93D",
+      "bgColor": "#FFFACD",
+      "subCategories": [
+        {
+          "id": 401,
+          "name": "Legal Consultants",
+          "icon": "gavel",
+          "description": "Legal advice and representation",
+          "color": "#F39C12"
+        },
+        {
+          "id": 402,
+          "name": "Accountants",
+          "icon": "calculate",
+          "description": "Tax and financial accounting",
+          "color": "#F39C12"
+        },
+        {
+          "id": 403,
+          "name": "Consultants",
+          "icon": "psychology",
+          "description": "Business and career consultants",
+          "color": "#F39C12"
+        },
+        {
+          "id": 404,
+          "name": "HR Services",
+          "icon": "people",
+          "description": "Human resources solutions",
+          "color": "#F39C12"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Beauty & Wellness",
+      "icon": "spa",
+      "description": "Beauty, spa, and wellness services",
+      "color": "#F08080",
+      "bgColor": "#FFE4E1",
+      "subCategories": [
+        {
+          "id": 501,
+          "name": "Salons",
+          "icon": "content_cut",
+          "description": "Hair and beauty salons",
+          "color": "#C0392B"
+        },
+        {
+          "id": 502,
+          "name": "Spa Services",
+          "icon": "local_spa",
+          "description": "Spa and massage services",
+          "color": "#C0392B"
+        },
+        {
+          "id": 503,
+          "name": "Fitness Centers",
+          "icon": "fitness_center",
+          "description": "Gyms and fitness training",
+          "color": "#C0392B"
+        },
+        {
+          "id": 504,
+          "name": "Yoga & Meditation",
+          "icon": "self_improvement",
+          "description": "Yoga and meditation classes",
+          "color": "#C0392B"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Food & Dining",
+      "icon": "restaurant",
+      "description": "Restaurants, cafes, and food services",
+      "color": "#A569BD",
+      "bgColor": "#F3E5F5",
+      "subCategories": [
+        {
+          "id": 601,
+          "name": "Restaurants",
+          "icon": "restaurant",
+          "description": "Full-service restaurants",
+          "color": "#8E44AD"
+        },
+        {
+          "id": 602,
+          "name": "Fast Food",
+          "icon": "fastfood",
+          "description": "Quick service restaurants",
+          "color": "#8E44AD"
+        },
+        {
+          "id": 603,
+          "name": "Cafes",
+          "icon": "local_cafe",
+          "description": "Coffee shops and cafes",
+          "color": "#8E44AD"
+        },
+        {
+          "id": 604,
+          "name": "Catering",
+          "icon": "room_service",
+          "description": "Event catering services",
+          "color": "#8E44AD"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Automotive",
+      "icon": "directions_car",
+      "description": "Cars, bikes, and automotive services",
+      "color": "#3498DB",
+      "bgColor": "#EBF5FB",
+      "subCategories": [
+        {
+          "id": 701,
+          "name": "Buy Vehicles",
+          "icon": "two_wheeler",
+          "description": "New and used vehicles",
+          "color": "#2980B9"
+        },
+        {
+          "id": 702,
+          "name": "Vehicle Repair",
+          "icon": "settings",
+          "description": "Repair and maintenance",
+          "color": "#2980B9"
+        },
+        {
+          "id": 703,
+          "name": "Spare Parts",
+          "icon": "precision_manufacturing",
+          "description": "Automotive parts and accessories",
+          "color": "#2980B9"
+        },
+        {
+          "id": 704,
+          "name": "Car Rental",
+          "icon": "directions_car_rental",
+          "description": "Vehicle rental services",
+          "color": "#2980B9"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Home Services",
+      "icon": "home_repair_service",
+      "description": "Home maintenance and improvement services",
+      "color": "#1ABC9C",
+      "bgColor": "#E8F8F5",
+      "subCategories": [
+        {
+          "id": 801,
+          "name": "Plumbers",
+          "icon": "plumbing",
+          "description": "Plumbing repair and installation",
+          "color": "#16A085"
+        },
+        {
+          "id": 802,
+          "name": "Electricians",
+          "icon": "electrical_services",
+          "description": "Electrical work and repairs",
+          "color": "#16A085"
+        },
+        {
+          "id": 803,
+          "name": "Cleaning Services",
+          "icon": "cleaning_services",
+          "description": "Professional cleaning services",
+          "color": "#16A085"
+        },
+        {
+          "id": 804,
+          "name": "Painters",
+          "icon": "format_paint",
+          "description": "Interior and exterior painting",
+          "color": "#16A085"
+        },
+        {
+          "id": 805,
+          "name": "Carpenters",
+          "icon": "build",
+          "description": "Carpentry and woodwork",
+          "color": "#16A085"
+        }
+      ]
+    }
+  ]
+}

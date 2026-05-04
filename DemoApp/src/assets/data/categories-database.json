@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Health & Medical",
+      "icon": "health_and_safety",
+      "description": "Find healthcare professionals and medical services",
+      "color": "#FF6B6B",
+      "bgColor": "#FFE5E5",
+      "image": "https://via.placeholder.com/400x300?text=Health+Medical",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    },
+    {
+      "id": 2,
+      "name": "Education",
+      "icon": "school",
+      "description": "Educational services and learning opportunities",
+      "color": "#4ECDC4",
+      "bgColor": "#E0F7F6",
+      "image": "https://via.placeholder.com/400x300?text=Education",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    },
+    {
+      "id": 3,
+      "name": "Beauty & Wellness",
+      "icon": "spa",
+      "description": "Beauty treatments and wellness services",
+      "color": "#FFB6C1",
+      "bgColor": "#FFF0F5",
+      "image": "https://via.placeholder.com/400x300?text=Beauty+Wellness",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    },
+    {
+      "id": 4,
+      "name": "Home Services",
+      "icon": "home_repair_service",
+      "description": "Maintenance and repair services for your home",
+      "color": "#FFD700",
+      "bgColor": "#FFFACD",
+      "image": "https://via.placeholder.com/400x300?text=Home+Services",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    },
+    {
+      "id": 5,
+      "name": "Technology & IT",
+      "icon": "computer",
+      "description": "Tech support and IT services",
+      "color": "#87CEEB",
+      "bgColor": "#E0FFFF",
+      "image": "https://via.placeholder.com/400x300?text=Technology+IT",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    },
+    {
+      "id": 6,
+      "name": "Legal & Finance",
+      "icon": "gavel",
+      "description": "Legal and financial consulting services",
+      "color": "#DEB887",
+      "bgColor": "#F5F5DC",
+      "image": "https://via.placeholder.com/400x300?text=Legal+Finance",
+      "createdAt": "2025-01-01",
+      "updatedAt": "2025-01-01"
+    }
+  ]
+}

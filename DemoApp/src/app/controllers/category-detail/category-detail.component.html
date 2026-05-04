@@ -1,0 +1,45 @@
+<div class="category-detail-container">
+  <button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Categories
+  </button>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading category details...</p>
+  </div>
+
+  <div *ngIf="!loading && category" class="category-content">
+    <div class="category-header" [style.background]="'linear-gradient(135deg, ' + category.color + ' 0%, ' + category.bgColor + ' 100%)'">
+      <div class="header-overlay">
+        <mat-icon class="header-icon">{{ category.icon }}</mat-icon>
+        <h1 class="category-title">{{ category.name }}</h1>
+        <p class="category-description">{{ category.description }}</p>
+      </div>
+    </div>
+
+    <div class="subcategories-section">
+      <h2 class="subcategories-title">Available Services</h2>
+      <div class="subcategories-grid">
+        <div *ngFor="let subCategory of category.subCategories"
+             class="subcategory-card"
+             [style.border-top-color]="subCategory.color"
+             (click)="selectSubCategory(subCategory)">
+          <div class="subcategory-icon-container" [style.background-color]="subCategory.color">
+            <mat-icon class="subcategory-icon">{{ subCategory.icon }}</mat-icon>
+          </div>
+          <h3 class="subcategory-name">{{ subCategory.name }}</h3>
+          <p class="subcategory-description">{{ subCategory.description }}</p>
+          <div class="subcategory-link">
+            <span>Explore</span>
+            <mat-icon>arrow_forward</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !category" class="not-found">
+    <p>Category not found.</p>
+  </div>
+</div>

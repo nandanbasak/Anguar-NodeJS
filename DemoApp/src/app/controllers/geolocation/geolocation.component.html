@@ -1,11 +1,37 @@
-<div class="row" id="searchSection">
-      <div class="col-sm-12">
-        <h1>Home services, on demand.</h1>
-      </div>
-      <div class="col-sm-12">
-        <app-countrylist (countryChanged)="onCountryChange($event)"></app-countrylist>
-      </div>
-      <div class="col-sm-12">
-        <app-statelist [country]="selectedCountry"></app-statelist>
+<div class="geolocation-wrapper">
+  <div class="geolocation-container">
+    <div class="geolocation-header">
+      <mat-icon class="geo-icon">location_on</mat-icon>
+      <div>
+        <h2 class="geo-title">Select Your Location</h2>
+        <p class="geo-subtitle">All services are tailored to your selected location</p>
       </div>
     </div>
+
+    <div class="geolocation-content">
+      <div class="geolocation-component">
+        <div class="location-selector">
+          <label for="country">Country</label>
+          <app-countrylist (countryChanged)="onCountryChange($event)"></app-countrylist>
+        </div>
+
+        <div class="location-selector">
+          <label for="state">State/Region</label>
+          <app-statelist [country]="selectedCountry"></app-statelist>
+        </div>
+
+        <button class="apply-button" (click)="applyLocation()">
+          <mat-icon>check_circle</mat-icon>
+          <span>Apply</span>
+        </button>
+      </div>
+
+      <div class="location-info" *ngIf="selectedCountry">
+        <p>
+          <mat-icon>check</mat-icon>
+          <span>Location set to: <strong>{{ selectedCountry }}</strong></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
