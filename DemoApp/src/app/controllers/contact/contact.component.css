@@ -353,8 +353,26 @@
     border-radius: 18px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(102, 126, 234, 0.1);
+    border: 2px solid rgba(102, 126, 234, 0.1);
     animation: slideInRight 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: right 0.6s ease;
+    pointer-events: none;
+}
+
+.contact-info-section:hover::before {
+    right: 100%;
 }
 
 @keyframes slideInRight {
@@ -371,14 +389,19 @@
 .contact-info-section:hover {
     box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
     transform: translateY(-5px);
+    border-color: rgba(102, 126, 234, 0.2);
 }
 
 .contact-info-section h2 {
     color: #2c3e50;
     margin: 0 0 35px 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .contact-info-items {
@@ -391,10 +414,29 @@
     display: flex;
     gap: 25px;
     align-items: flex-start;
-    padding-bottom: 30px;
+    padding: 20px;
     border-bottom: 2px solid #f0f0f0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(118, 75, 162, 0.03));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: infoItemFade 0.6s ease backwards;
+    position: relative;
+}
+
+.contact-info-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-info-item:hover::after {
+    width: 100%;
 }
 
 @keyframes infoItemFade {
@@ -414,11 +456,12 @@
 
 .contact-info-item:last-child {
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 .contact-info-item:hover {
     transform: translateX(10px);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
 }
 
 .contact-info-icon {
@@ -434,6 +477,22 @@
     flex-shrink: 0;
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.contact-info-icon::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.contact-info-item:hover .contact-info-icon::before {
+    opacity: 0.3;
 }
 
 .contact-info-item:hover .contact-info-icon {
@@ -443,9 +502,11 @@
 
 .contact-info-content h3 {
     color: #2c3e50;
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
     font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .contact-info-content p {
@@ -453,13 +514,30 @@
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.7;
+    transition: all 0.3s ease;
+}
+
+.contact-info-item:hover .contact-info-content p {
+    color: #667eea;
 }
 
 .contact-info-content a {
     color: #667eea;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
+    position: relative;
+}
+
+.contact-info-content a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
 }
 
 .contact-info-content a:hover {
@@ -467,25 +545,77 @@
     transform: translateX(3px);
 }
 
+.contact-info-content a:hover::after {
+    width: 100%;
+}
+
 /* Social Section */
 .social-section {
     margin-top: 40px;
-    padding-top: 40px;
+    padding: 35px;
     border-top: 2px solid #f0f0f0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(118, 75, 162, 0.03));
+    border-radius: 12px;
     animation: fadeInUp 0.8s ease 0.3s backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.08), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.social-section:hover::before {
+    left: 100%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .social-section h3 {
     color: #2c3e50;
     margin: 0 0 25px 0;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.social-section h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    border-radius: 2px;
+    margin-right: 12px;
+    vertical-align: middle;
 }
 
 .social-links-contact {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
 .social-link-contact {
@@ -502,6 +632,18 @@
     border: 2px solid rgba(102, 126, 234, 0.3);
     font-size: 22px;
     animation: socialLinkSlide 0.6s ease backwards;
+    position: relative;
+}
+
+.social-link-contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 @keyframes socialLinkSlide {
@@ -528,17 +670,29 @@
     box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
 }
 
+.social-link-contact:hover::before {
+    opacity: 0.3;
+}
+
 /* Map Section */
 .map-section {
     margin-top: 80px;
     animation: fadeInUp 0.8s ease 0.5s backwards;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    border-radius: 18px;
 }
 
 .map-section h2 {
     color: #2c3e50;
     margin: 0 0 35px 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .map-container {
@@ -547,12 +701,15 @@
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     height: 450px;
-    border: 1px solid rgba(102, 126, 234, 0.1);
-    transition: all 0.4s ease;
+    border: 2px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
 .map-container:hover {
     box-shadow: 0 15px 50px rgba(102, 126, 234, 0.25);
+    border-color: rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
 }
 
 .map-placeholder {
@@ -586,6 +743,7 @@
 
     .contact-hero h1 {
         font-size: 2.2rem;
+        letter-spacing: 0.3px;
     }
 
     .contact-hero p {
@@ -603,8 +761,25 @@
         padding: 35px;
     }
 
+    .contact-form-section h2,
+    .contact-info-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
     .map-container {
         height: 350px;
+    }
+
+    .map-section {
+        padding: 30px;
+    }
+
+    .social-section {
+        padding: 25px;
     }
 }
 
@@ -623,8 +798,38 @@
         font-size: 1.4rem;
     }
 
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .contact-info-item {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .contact-info-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
     .map-container {
         height: 300px;
+    }
+
+    .map-section {
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .social-section {
+        padding: 20px;
     }
 
     .social-link-contact {
@@ -633,7 +838,7 @@
         font-size: 20px;
     }
 }
-}
+
 
 .faq-section h2 {
     color: #2c3e50;

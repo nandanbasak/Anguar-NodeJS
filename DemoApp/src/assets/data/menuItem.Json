@@ -1,0 +1,639 @@
+[
+    {
+        "id": 1,
+        "name": "Health & Wellness",
+        "icon": "local_hospital",
+        "description": "Find doctors, medical stores, hospitals and diagnostic centers",
+        "color": "#FF6B6B",
+        "bgColor": "#FFE5E5",
+        "subCategories": [
+            {
+                "id": 101,
+                "name": "Doctors",
+                "description": "Consult experienced doctors and physicians",
+                "items": [
+                    {
+                        "id": 1001,
+                        "name": "Dr. Rajesh Kumar",
+                        "description": "MBBS, MD - General Physician",
+                        "price": 500,
+                        "rating": 4.8,
+                        "location": "New Delhi",
+                        "experience": "12 years",
+                        "phone": "+91-98765-43210"
+                    },
+                    {
+                        "id": 1002,
+                        "name": "Dr. Priya Sharma",
+                        "description": "BDS, MDS - Dentist",
+                        "price": 400,
+                        "rating": 4.7,
+                        "location": "Mumbai",
+                        "experience": "8 years",
+                        "phone": "+91-98765-43211"
+                    },
+                    {
+                        "id": 1003,
+                        "name": "Dr. Amit Patel",
+                        "description": "MBBS, MS - Orthopedic Surgeon",
+                        "price": 800,
+                        "rating": 4.9,
+                        "location": "Bangalore",
+                        "experience": "15 years",
+                        "phone": "+91-98765-43212"
+                    }
+                ]
+            },
+            {
+                "id": 102,
+                "name": "Medical Stores",
+                "description": "Pharmacy and medical supplies",
+                "items": [
+                    {
+                        "id": 1004,
+                        "name": "Apollo Pharmacy",
+                        "description": "Complete medical and pharmacy services",
+                        "price": 0,
+                        "rating": 4.6,
+                        "location": "Pan India",
+                        "phone": "+91-98765-43213"
+                    },
+                    {
+                        "id": 1005,
+                        "name": "CVS Pharmacy",
+                        "description": "Medicine delivery at doorstep",
+                        "price": 0,
+                        "rating": 4.5,
+                        "location": "Multiple locations",
+                        "phone": "+91-98765-43214"
+                    }
+                ]
+            },
+            {
+                "id": 103,
+                "name": "Hospitals",
+                "description": "Multi-specialty hospitals and clinics",
+                "items": [
+                    {
+                        "id": 1006,
+                        "name": "Max Healthcare",
+                        "description": "Super specialty hospital",
+                        "price": 0,
+                        "rating": 4.7,
+                        "location": "New Delhi",
+                        "beds": 500,
+                        "phone": "+91-98765-43215"
+                    },
+                    {
+                        "id": 1007,
+                        "name": "Apollo Hospitals",
+                        "description": "World-class medical care",
+                        "price": 0,
+                        "rating": 4.8,
+                        "location": "Multiple locations",
+                        "beds": 800,
+                        "phone": "+91-98765-43216"
+                    }
+                ]
+            },
+            {
+                "id": 104,
+                "name": "Diagnostic Centers",
+                "description": "Lab tests and medical diagnostics",
+                "items": [
+                    {
+                        "id": 1008,
+                        "name": "Thyrocare",
+                        "description": "Comprehensive health checkup packages",
+                        "price": 1500,
+                        "rating": 4.7,
+                        "location": "Pan India",
+                        "tests": "500+",
+                        "phone": "+91-98765-43217"
+                    },
+                    {
+                        "id": 1009,
+                        "name": "Ganesh Diagnostic",
+                        "description": "Advanced diagnostic laboratory",
+                        "price": 1200,
+                        "rating": 4.6,
+                        "location": "Multiple cities",
+                        "tests": "400+",
+                        "phone": "+91-98765-43218"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Education",
+        "icon": "school",
+        "description": "Discover tutors, schools, and training programs",
+        "color": "#4ECDC4",
+        "bgColor": "#E0F7F6",
+        "subCategories": [
+            {
+                "id": 201,
+                "name": "Private Teachers",
+                "description": "One-on-one tutoring services",
+                "items": [
+                    {
+                        "id": 2001,
+                        "name": "Rakesh Singh",
+                        "subject": "Mathematics",
+                        "experience": "8 years",
+                        "rating": 4.9,
+                        "rate": 500,
+                        "location": "New Delhi",
+                        "phone": "+91-98765-43219"
+                    },
+                    {
+                        "id": 2002,
+                        "name": "Neha Gupta",
+                        "subject": "Science",
+                        "experience": "6 years",
+                        "rating": 4.8,
+                        "rate": 450,
+                        "location": "Bangalore",
+                        "phone": "+91-98765-43220"
+                    }
+                ]
+            },
+            {
+                "id": 202,
+                "name": "Schools",
+                "description": "Educational institutions",
+                "items": [
+                    {
+                        "id": 2003,
+                        "name": "Delhi Public School",
+                        "board": "CBSE",
+                        "classes": "Nursery-XII",
+                        "rating": 4.7,
+                        "location": "New Delhi",
+                        "phone": "+91-98765-43221"
+                    }
+                ]
+            },
+            {
+                "id": 203,
+                "name": "Coaching Centers",
+                "description": "Exam preparation and skill development",
+                "items": [
+                    {
+                        "id": 2004,
+                        "name": "Aakash Institute",
+                        "specialization": "JEE, NEET Preparation",
+                        "rating": 4.8,
+                        "centers": "100+",
+                        "phone": "+91-98765-43222"
+                    }
+                ]
+            },
+            {
+                "id": 204,
+                "name": "Online Courses",
+                "description": "Digital learning platforms",
+                "items": [
+                    {
+                        "id": 2005,
+                        "name": "Udemy",
+                        "specialization": "Technology & Business",
+                        "courses": "100000+",
+                        "rating": 4.6,
+                        "phone": "+91-98765-43223"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Real Estate",
+        "icon": "home",
+        "description": "Buy, sell, or rent properties",
+        "color": "#FFD93D",
+        "bgColor": "#FFF9E6",
+        "subCategories": [
+            {
+                "id": 301,
+                "name": "Buy Properties",
+                "description": "Purchase residential and commercial properties",
+                "items": [
+                    {
+                        "id": 3001,
+                        "name": "3BHK Apartment in Gurugram",
+                        "type": "Apartment",
+                        "bhk": 3,
+                        "price": 8500000,
+                        "area": 1500,
+                        "location": "Sector 48, Gurugram",
+                        "phone": "+91-98765-43224"
+                    }
+                ]
+            },
+            {
+                "id": 302,
+                "name": "Rent Properties",
+                "description": "Find rental accommodations",
+                "items": [
+                    {
+                        "id": 3002,
+                        "name": "2BHK Flat in Bengaluru",
+                        "type": "Apartment",
+                        "bhk": 2,
+                        "rent": 25000,
+                        "area": 1000,
+                        "location": "Indiranagar, Bengaluru",
+                        "phone": "+91-98765-43225"
+                    }
+                ]
+            },
+            {
+                "id": 303,
+                "name": "Property Dealers",
+                "description": "Real estate agents and agencies",
+                "items": [
+                    {
+                        "id": 3003,
+                        "name": "Century 21",
+                        "type": "Agency",
+                        "experience": "20 years",
+                        "locations": "50+",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43226"
+                    }
+                ]
+            },
+            {
+                "id": 304,
+                "name": "Land",
+                "description": "Agricultural and commercial land",
+                "items": [
+                    {
+                        "id": 3004,
+                        "name": "Farm Land in Punjabi Bagh",
+                        "area": 5000,
+                        "price": 5000000,
+                        "location": "Punjabi Bagh, Delhi",
+                        "phone": "+91-98765-43227"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Professional Services",
+        "icon": "business_center",
+        "description": "Business consultancy and professional help",
+        "color": "#95E1D3",
+        "bgColor": "#E8F8F5",
+        "subCategories": [
+            {
+                "id": 401,
+                "name": "Business Consulting",
+                "description": "Strategy and management consulting",
+                "items": [
+                    {
+                        "id": 4001,
+                        "name": "McKinsey & Company",
+                        "type": "Global Consulting Firm",
+                        "experience": "90 years",
+                        "rating": 4.9,
+                        "phone": "+91-98765-43228"
+                    }
+                ]
+            },
+            {
+                "id": 402,
+                "name": "Legal Services",
+                "description": "Law firms and legal consultants",
+                "items": [
+                    {
+                        "id": 4002,
+                        "name": "Amarchand Mangaldas",
+                        "type": "Law Firm",
+                        "specialization": "Corporate Law",
+                        "experience": "70 years",
+                        "phone": "+91-98765-43229"
+                    }
+                ]
+            },
+            {
+                "id": 403,
+                "name": "Accounting & Tax",
+                "description": "CA services and tax consulting",
+                "items": [
+                    {
+                        "id": 4003,
+                        "name": "Deloitte",
+                        "type": "Accounting Firm",
+                        "services": "Tax, Audit, Consulting",
+                        "rating": 4.8,
+                        "phone": "+91-98765-43230"
+                    }
+                ]
+            },
+            {
+                "id": 404,
+                "name": "HR Services",
+                "description": "Recruitment and HR consulting",
+                "items": [
+                    {
+                        "id": 4004,
+                        "name": "TeamLease",
+                        "type": "HR Services",
+                        "services": "Recruitment, Training",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43231"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Beauty & Wellness",
+        "icon": "spa",
+        "description": "Salon, spa, and beauty services",
+        "color": "#C498E3",
+        "bgColor": "#F5F0FF",
+        "subCategories": [
+            {
+                "id": 501,
+                "name": "Salons",
+                "description": "Hair cutting and styling",
+                "items": [
+                    {
+                        "id": 5001,
+                        "name": "Jawed Habib's Salon",
+                        "type": "Hair Salon",
+                        "specialization": "Cutting, Coloring",
+                        "rating": 4.7,
+                        "location": "Pan India",
+                        "phone": "+91-98765-43232"
+                    }
+                ]
+            },
+            {
+                "id": 502,
+                "name": "Spas",
+                "description": "Massage and spa treatments",
+                "items": [
+                    {
+                        "id": 5002,
+                        "name": "Thai Spa & Wellness",
+                        "type": "Spa",
+                        "specialization": "Thai Massage, Spa",
+                        "rating": 4.8,
+                        "phone": "+91-98765-43233"
+                    }
+                ]
+            },
+            {
+                "id": 503,
+                "name": "Gym & Fitness",
+                "description": "Fitness centers and trainers",
+                "items": [
+                    {
+                        "id": 5003,
+                        "name": "Gold's Gym",
+                        "type": "Gym",
+                        "equipment": "Complete Range",
+                        "rating": 4.6,
+                        "membership": 3000,
+                        "phone": "+91-98765-43234"
+                    }
+                ]
+            },
+            {
+                "id": 504,
+                "name": "Beauty Treatments",
+                "description": "Cosmetic and beauty services",
+                "items": [
+                    {
+                        "id": 5004,
+                        "name": "The Derma Centre",
+                        "type": "Dermatology Clinic",
+                        "specialization": "Skin Care, Laser",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43235"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Food & Dining",
+        "icon": "restaurant",
+        "description": "Restaurants and food delivery",
+        "color": "#FF8B94",
+        "bgColor": "#FFE8EA",
+        "subCategories": [
+            {
+                "id": 601,
+                "name": "Restaurants",
+                "description": "Dine in restaurants",
+                "items": [
+                    {
+                        "id": 6001,
+                        "name": "Marriott Restaurant",
+                        "cuisine": "Multi-cuisine",
+                        "avgCost": 1500,
+                        "rating": 4.8,
+                        "location": "New Delhi",
+                        "phone": "+91-98765-43236"
+                    }
+                ]
+            },
+            {
+                "id": 602,
+                "name": "Food Delivery",
+                "description": "Online food delivery services",
+                "items": [
+                    {
+                        "id": 6002,
+                        "name": "Swiggy",
+                        "type": "Food Delivery App",
+                        "coverage": "Pan India",
+                        "rating": 4.6,
+                        "phone": "+91-98765-43237"
+                    }
+                ]
+            },
+            {
+                "id": 603,
+                "name": "Cafes",
+                "description": "Coffee shops and cafes",
+                "items": [
+                    {
+                        "id": 6003,
+                        "name": "Starbucks",
+                        "type": "Cafe",
+                        "specialty": "Coffee",
+                        "rating": 4.5,
+                        "phone": "+91-98765-43238"
+                    }
+                ]
+            },
+            {
+                "id": 604,
+                "name": "Catering",
+                "description": "Event catering services",
+                "items": [
+                    {
+                        "id": 6004,
+                        "name": "Royal Catering Services",
+                        "type": "Catering",
+                        "specialization": "All cuisines",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43239"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Automotive",
+        "icon": "directions_car",
+        "description": "Car services and dealerships",
+        "color": "#5DADE2",
+        "bgColor": "#EBF5FB",
+        "subCategories": [
+            {
+                "id": 701,
+                "name": "Car Dealers",
+                "description": "New and used car sales",
+                "items": [
+                    {
+                        "id": 7001,
+                        "name": "Maruti Suzuki Showroom",
+                        "brand": "Maruti Suzuki",
+                        "type": "Showroom",
+                        "rating": 4.6,
+                        "location": "Multiple locations",
+                        "phone": "+91-98765-43240"
+                    }
+                ]
+            },
+            {
+                "id": 702,
+                "name": "Car Repair",
+                "description": "Maintenance and repair services",
+                "items": [
+                    {
+                        "id": 7002,
+                        "name": "Maruti Service Center",
+                        "brand": "Maruti Suzuki",
+                        "services": "Maintenance, Repairs",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43241"
+                    }
+                ]
+            },
+            {
+                "id": 703,
+                "name": "Insurance",
+                "description": "Car insurance services",
+                "items": [
+                    {
+                        "id": 7003,
+                        "name": "HDFC ERGO",
+                        "type": "Insurance Company",
+                        "coverage": "Comprehensive",
+                        "rating": 4.5,
+                        "phone": "+91-98765-43242"
+                    }
+                ]
+            },
+            {
+                "id": 704,
+                "name": "Fuel & Charging",
+                "description": "Petrol pumps and EV chargers",
+                "items": [
+                    {
+                        "id": 7004,
+                        "name": "Indian Oil",
+                        "type": "Fuel Station",
+                        "stations": "5000+",
+                        "phone": "+91-98765-43243"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Home Services",
+        "icon": "handyman",
+        "description": "Plumber, electrician, and home repair",
+        "color": "#F8B88B",
+        "bgColor": "#FEF4E8",
+        "subCategories": [
+            {
+                "id": 801,
+                "name": "Plumbing",
+                "description": "Plumber and water services",
+                "items": [
+                    {
+                        "id": 8001,
+                        "name": "Local Plumber - Raj Kumar",
+                        "type": "Plumber",
+                        "experience": "15 years",
+                        "rating": 4.8,
+                        "location": "New Delhi",
+                        "phone": "+91-98765-43244"
+                    }
+                ]
+            },
+            {
+                "id": 802,
+                "name": "Electrical",
+                "description": "Electrician services",
+                "items": [
+                    {
+                        "id": 8002,
+                        "name": "Expert Electrician",
+                        "type": "Electrician",
+                        "experience": "10 years",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43245"
+                    }
+                ]
+            },
+            {
+                "id": 803,
+                "name": "Cleaning",
+                "description": "House cleaning and maintenance",
+                "items": [
+                    {
+                        "id": 8003,
+                        "name": "Modern Cleaning Services",
+                        "type": "Cleaning Service",
+                        "rating": 4.6,
+                        "phone": "+91-98765-43246"
+                    }
+                ]
+            },
+            {
+                "id": 804,
+                "name": "Painting & Carpentry",
+                "description": "Painting and woodwork services",
+                "items": [
+                    {
+                        "id": 8004,
+                        "name": "Professional Painters",
+                        "type": "Painting Service",
+                        "experience": "12 years",
+                        "rating": 4.7,
+                        "phone": "+91-98765-43247"
+                    }
+                ]
+            }
+        ]
+    }
+]
