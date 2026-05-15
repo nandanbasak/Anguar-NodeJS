@@ -51,13 +51,15 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
               0 0 60px rgba(102, 126, 234, 0.2);
   width: 100%;
-  max-width: 450px;
-  padding: 50px 40px;
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1),
              floatCard 3s ease-in-out infinite;
   border: 2px solid rgba(102, 126, 234, 0.1);
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 @keyframes slideInUp {
@@ -112,6 +114,118 @@
   font-weight: 400;
 }
 
+/* Left Form Section */
+.login-form-section {
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right Security Section */
+.security-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.security-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBackground 20s linear infinite;
+  pointer-events: none;
+}
+
+.security-icon {
+  font-size: 60px;
+  margin-bottom: 25px;
+  animation: iconBounce 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.security-section h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.security-section p {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.security-decorations {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decoration-circle {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: decorationFloat 6s ease-in-out infinite;
+}
+
+.decoration-circle.small {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  right: 15%;
+  animation-delay: 0s;
+}
+
+.decoration-circle.medium {
+  width: 120px;
+  height: 120px;
+  bottom: 15%;
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.decoration-circle.large {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: -30px;
+  animation-delay: 1s;
+}
+
+@keyframes decorationFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
 .form-group {
   margin-bottom: 25px;
   animation: formGroupFade 0.6s ease backwards;
@@ -142,9 +256,27 @@
   text-transform: uppercase;
 }
 
+/* Input Wrapper for Icon Support */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: #667eea;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .form-group input {
   width: 100%;
-  padding: 14px 16px;
+  padding: 14px 16px 14px 45px;
   border: 2px solid #e8eaed;
   border-radius: 12px;
   font-size: 0.95rem;
@@ -176,6 +308,32 @@
 .form-group input.ng-valid.ng-touched {
   border-color: #27ae60;
   box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.password-toggle:hover {
+  color: #764ba2;
+  transform: scale(1.1);
+}
+
+.password-toggle mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .error-message {
@@ -447,21 +605,51 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .login-card {
+    max-width: 700px;
+  }
+
+  .login-form-section,
+  .security-section {
+    padding: 40px 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .login-card {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .login-form-section {
     padding: 40px 30px;
   }
 
+  .security-section {
+    padding: 40px 30px;
+    min-height: 300px;
+  }
+
   .login-header h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .form-group {
     margin-bottom: 20px;
   }
 
-  .social-login {
-    grid-template-columns: 1fr;
+  .security-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .security-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  .decoration-circle {
+    opacity: 0.3;
   }
 }
 
@@ -471,7 +659,16 @@
   }
 
   .login-card {
-    padding: 30px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .login-form-section {
+    padding: 25px 20px;
+  }
+
+  .security-section {
+    padding: 25px 20px;
+    min-height: 250px;
   }
 
   .login-header h2 {
@@ -487,56 +684,19 @@
   .forgot-password {
     width: 100%;
   }
-}
 
-.form-group label {
-  display: block;
-  margin-bottom: 10px;
-  color: #2c3e50;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.3px;
-}
+  .security-section h3 {
+    font-size: 1.3rem;
+  }
 
-.form-group input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #e8eaed;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box;
-  font-family: inherit;
-  background: #f9f9fb;
-}
+  .security-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
 
-.form-group input::placeholder {
-  color: #bbb;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
-  background-color: white;
-  transform: scale(1.01);
-}
-
-.form-group input.ng-invalid.ng-touched {
-  border-color: #e74c3c;
-  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
-}
-
-.form-group input.ng-valid.ng-touched {
-  border-color: #27ae60;
-}
-
-.error-message {
-  color: #e74c3c;
-  font-size: 0.85rem;
-  margin-top: 6px;
-  display: block;
-  animation: shake 0.4s ease;
+  .security-section p {
+    font-size: 0.85rem;
+  }
 }
 
 @keyframes shake {

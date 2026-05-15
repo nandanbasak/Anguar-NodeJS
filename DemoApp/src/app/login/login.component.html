@@ -1,80 +1,89 @@
 <div class="login-container">
   <div class="login-card">
-    <div class="login-header">
-      <h2>Welcome Back</h2>
-      <p>Sign in to your account to continue</p>
+    <!-- Left Section: Login Form -->
+    <div class="login-form-section">
+      <div class="login-header">
+        <h2>Welcome Back</h2>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <form [formGroup]="loginForm">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <mat-icon class="input-icon">email</mat-icon>
+            <input 
+              type="email"
+              id="email"
+              formControlName="email" 
+              placeholder="Enter your email" 
+              required
+              autofocus>
+          </div>
+          <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+            <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <mat-icon class="input-icon">lock</mat-icon>
+            <input 
+              [type]="changetype ? 'password' : 'text'"
+              id="password"
+              formControlName="password" 
+              placeholder="Enter your password"
+              required>
+            <button type="button" class="password-toggle" (click)="viewpass()" tabindex="-1">
+              <mat-icon>{{ changetype ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
+          </div>
+          <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
+          </div>
+        </div>
+
+        <!-- Form Options -->
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" formControlName="rememberMe" name="remember">
+            <span>Remember me</span>
+          </label>
+          <a href="javascript:void(0)" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <!-- Login Button -->
+        <button 
+          type="submit"
+          [disabled]="!loginForm.valid"
+          (click)="ProccedLogin()"
+          class="login-button">
+          Sign In
+        </button>
+
+        <!-- Sign Up Link -->
+        <div class="signup-link">
+          Don't have an account? <a routerLink="/register">Sign up here</a>
+        </div>
+      </form>
     </div>
 
-    <form [formGroup]="loginForm">
-      <!-- Email Field -->
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input 
-          type="email"
-          id="email"
-          formControlName="email" 
-          placeholder="Enter your email address" 
-          required
-          autofocus>
-        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-          <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
-          <span *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</span>
-        </div>
+    <!-- Right Section: Security Feature -->
+    <div class="security-section">
+      <div class="security-icon">
+        <mat-icon>lock</mat-icon>
       </div>
-
-      <!-- Password Field -->
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input 
-          [type]="changetype ? 'password' : 'text'"
-          id="password"
-          formControlName="password" 
-          placeholder="Enter your password"
-          required>
-        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-          <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
-        </div>
+      <h3>Secure Access</h3>
+      <p>Your security is our priority</p>
+      <div class="security-decorations">
+        <div class="decoration-circle small"></div>
+        <div class="decoration-circle medium"></div>
+        <div class="decoration-circle large"></div>
       </div>
-
-      <!-- Form Options -->
-      <div class="form-options">
-        <label class="remember-me">
-          <input type="checkbox" formControlName="rememberMe" name="remember">
-          <span>Remember me</span>
-        </label>
-        <a href="javascript:void(0)" class="forgot-password">Forgot password?</a>
-      </div>
-
-      <!-- Login Button -->
-      <button 
-        type="submit"
-        [disabled]="!loginForm.valid"
-        (click)="ProccedLogin()"
-        class="login-button">
-        Sign In
-      </button>
-
-      <!-- Social Login Divider -->
-      <div class="divider">
-        <span>or continue with</span>
-      </div>
-
-      <!-- Social Login Buttons -->
-      <div class="social-login">
-        <button type="button" class="social-button">
-          <mat-icon>g_translate</mat-icon>
-          Google
-        </button>
-        <button type="button" class="social-button">
-          <mat-icon>language</mat-icon>
-          Facebook
-        </button>
-      </div>
-
-      <!-- Sign Up Link -->
-      <div class="signup-link">
-        Don't have an account? <a routerLink="/register">Sign up here</a>
-      </div>
-    </form>
+    </div>
   </div>
 </div>

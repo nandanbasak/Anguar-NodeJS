@@ -13,13 +13,13 @@ import { DatePipe } from '@angular/common';
 export class ContactComponent implements OnInit, IDeactivateComponent {
 
   constructor(private commonService: CommonService) { }
-  user_id;
-  first_name;
-  last_name;
-  email;
-  phone;
-  coments;
-  comments_on;
+  user_id: string = '';
+  first_name: string = '';
+  last_name: string = '';
+  email: string = '';
+  phone: string = '';
+  coments: string = '';
+  comments_on: string = '';
   Allcontacts: Contacts[] = [];
   ngOnInit(): void {
     this.getRequest();
